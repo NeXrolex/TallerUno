@@ -8,12 +8,6 @@ package co.udistrital.avanzada.tallerUno.modelo;
  *
  * @author santi
  */
-public class Persona {
-
-    private String nombre;
-    private String apellido;
-    private String cedula;
-    private String numero;
-    private String correo;
-
+public class MotoElectrica extends Vehiculo {
+    
 }
