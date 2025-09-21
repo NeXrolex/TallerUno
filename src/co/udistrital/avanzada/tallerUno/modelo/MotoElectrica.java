@@ -10,4 +10,12 @@ package co.udistrital.avanzada.tallerUno.modelo;
  */
 public class MotoElectrica extends Vehiculo {
     
+     public MotoElectrica(String potencia, String marca, String numChasis, String referencia) {
+        
+        super.potencia = potencia;
+        super.marca = marca;
+        super.numChasis = numChasis;
+        super.referencia = referencia;
+    }
+    
 }
