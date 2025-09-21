@@ -1,0 +1,27 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package co.udistrital.avanzada.tallerUno.modelo;
+
+/**
+ * Representa un provedor en el sistema
+ *
+ * @author santi
+ * @version 1.0
+ * 
+ * Se extiende a ProvedorServicios e ProvedorInsumos
+ */
+public class Provedor extends Persona {
+
+    public Provedor(String nombre, String apellido, String cedula, String numero, String correo) {
+
+        super.nombre = nombre;
+        super.apellido = apellido;
+        super.cedula = cedula;
+        super.numero = numero;
+        super.correo = correo;
+
+    }
+
+}

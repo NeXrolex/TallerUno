@@ -5,8 +5,11 @@
 package co.udistrital.avanzada.tallerUno.modelo;
 
 /**
- *
+ *  Representa una moto electrica en el sistema
+ * 
  * @author santi
+ * @version 1.0
+ * 
  */
 public class MotoElectrica extends Vehiculo {
     

@@ -5,8 +5,10 @@
 package co.udistrital.avanzada.tallerUno.modelo;
 
 /**
- *
+ * Representa un vehiculo en el sistema
+ * 
  * @author santi
+ * @version 1.0
  */
 public class Vehiculo {
     

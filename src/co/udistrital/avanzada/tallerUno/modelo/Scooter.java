@@ -5,8 +5,11 @@
 package co.udistrital.avanzada.tallerUno.modelo;
 
 /**
- *
+ * Representa un scooter en el sistema
+ * 
  * @author santi
+ * @version 1.0
+ * 
  */
 public class Scooter extends Vehiculo {
 
