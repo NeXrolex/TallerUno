@@ -13,7 +13,8 @@ package co.udistrital.avanzada.tallerUno.modelo;
  */
 public class Administrador extends Persona {
 
-    public Administrador(String nombre, String apellido, String cedula, String numero, String correo) {
+    public Administrador(String nombre, String apellido, String cedula,
+            String numero, String correo) {
 
         super.nombre = nombre;
         super.apellido = apellido;

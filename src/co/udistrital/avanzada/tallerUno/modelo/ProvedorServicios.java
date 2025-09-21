@@ -12,7 +12,8 @@ package co.udistrital.avanzada.tallerUno.modelo;
  */
 public class ProvedorServicios extends Provedor {
     
-    public ProvedorServicios(String nombre, String apellido, String cedula, String numero, String correo) {
+    public ProvedorServicios(String nombre, String apellido, String cedula,
+            String numero, String correo) {
         super(nombre, apellido, cedula, numero, correo);
     }
     

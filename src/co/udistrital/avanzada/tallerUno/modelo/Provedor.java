@@ -14,7 +14,8 @@ package co.udistrital.avanzada.tallerUno.modelo;
  */
 public class Provedor extends Persona {
 
-    public Provedor(String nombre, String apellido, String cedula, String numero, String correo) {
+    public Provedor(String nombre, String apellido, String cedula,
+            String numero, String correo) {
 
         super.nombre = nombre;
         super.apellido = apellido;
