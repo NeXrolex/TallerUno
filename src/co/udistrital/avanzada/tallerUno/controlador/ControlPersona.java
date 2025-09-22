@@ -5,9 +5,13 @@
 package co.udistrital.avanzada.tallerUno.controlador;
 
 /**
- *
+ * 
  * @author santi
+ * @autor Jeison 
+ * 
  */
 public class ControlPersona {
+    
+    
     
 }
