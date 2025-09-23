@@ -5,18 +5,19 @@
 package co.udistrital.avanzada.tallerUno.controlador;
 
 import co.udistrital.tallerUno.vista.PantallaPrincipal;
-import java.awt.event.*;
-import javax.swing.*;
+
+
+
 /**
  *
  * @author santi
  */
-public class ControlVista implements ActionListener {
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-       
+public class Launcher {
+    
+    public static void main(String arg[]){
+        
+        new PantallaPrincipal("rola pet");
+      
     }
-
-   
+    
 }
