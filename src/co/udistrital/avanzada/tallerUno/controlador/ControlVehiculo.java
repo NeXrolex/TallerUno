@@ -12,14 +12,9 @@ import java.util.ArrayList;
  * @author santi
  */
 public class ControlVehiculo {
-    private ArrayList<Vehiculo> vehiculosregistrados;
-
-    public ArrayList<Vehiculo> getVehiculosregistrados() {
-        return vehiculosregistrados;
-    }
-
-    public void setVehiculosregistrados(ArrayList<Vehiculo> vehiculosregistrados) {
-        this.vehiculosregistrados = vehiculosregistrados;
+    private ArrayList<Vehiculo> vehiculosRegistrados;
+    private void controlVehiculo (){
+    
     }
     
     public void crearVehiculo(String potencia, String marca, String numChasis, String referencia) {
