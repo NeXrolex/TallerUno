@@ -9,14 +9,15 @@ import co.udistrital.tallerUno.vista.PantallaPrincipal;
 
 
 /**
- *
- * @author santi
+ * Lanzador del programa
+ * @author Alex
+ * @version 1.0
  */
 public class Launcher {
     
     public static void main(String arg[]){
         
-        new PantallaPrincipal("rola pet");
+        new ControlGeneral();
       
     }
     

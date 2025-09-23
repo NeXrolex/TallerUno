@@ -7,7 +7,7 @@ package co.udistrital.avanzada.tallerUno.modelo;
 /**
  * Representa un administrador del aplicativo de ROLA PET
  *
- * @author santi
+ * @author Alex
  * @version 1.0
  *
  */

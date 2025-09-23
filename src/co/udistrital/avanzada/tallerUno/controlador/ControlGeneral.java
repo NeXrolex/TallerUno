@@ -6,8 +6,11 @@ package co.udistrital.avanzada.tallerUno.controlador;
 
 /**
  *
- * @author santi
+ * @author Alex
  */
 public class ControlGeneral {
+    
+    private ControlVehiculo controlVehiculo;
+    private ControlPersona controlPersona;
     
 }

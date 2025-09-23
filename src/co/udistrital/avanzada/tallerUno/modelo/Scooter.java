@@ -7,7 +7,7 @@ package co.udistrital.avanzada.tallerUno.modelo;
 /**
  * Representa un scooter en el sistema
  * 
- * @author santi
+ * @author Alex
  * @version 1.0
  * 
  */

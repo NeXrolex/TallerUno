@@ -20,7 +20,7 @@ import javax.swing.SwingConstants;
 /**
  * Clase que representa la ventana principal de la aplicacion RolaPet
  *
- * @author santi
+ * @author Alex
  * @version 1.0
  *
  * Extiende deJFrame para construir una interfaz grafica

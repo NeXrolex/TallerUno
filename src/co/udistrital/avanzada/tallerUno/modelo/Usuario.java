@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Representa un usuario del aplicativo de ROLA PET
  * 
- * @author santi
+ * @author Alex
  * @version 1.0
  */
 public class Usuario extends Persona {
