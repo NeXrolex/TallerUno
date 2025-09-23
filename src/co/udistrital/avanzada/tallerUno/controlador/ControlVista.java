@@ -9,7 +9,7 @@ import java.awt.event.*;
 import javax.swing.*;
 /**
  *
- * @author santi
+ * @author Alex
  */
 public class ControlVista implements ActionListener {
 

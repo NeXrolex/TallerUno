@@ -7,7 +7,7 @@ package co.udistrital.avanzada.tallerUno.modelo;
 /**
  * Clase base que representa a una persona dentro del sistema
  * 
- * @author santi
+ * @author Alex
  * @version 1.0
  * 
  * Esta clase sera extendida por Usuario,provedor y Administrador

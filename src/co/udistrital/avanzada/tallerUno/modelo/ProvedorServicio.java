@@ -7,7 +7,7 @@ package co.udistrital.avanzada.tallerUno.modelo;
 /**
  * Representa un provedor de Servicios
  * 
- * @author santi
+ * @author Alex
  * @version 1.0
  */
 public class ProvedorServicio extends Provedor {

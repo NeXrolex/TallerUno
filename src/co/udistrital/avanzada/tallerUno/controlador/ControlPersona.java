@@ -6,8 +6,8 @@ package co.udistrital.avanzada.tallerUno.controlador;
 
 /**
  * 
- * @author santi
- * @autor Jeison 
+ * @author Alex, Jeison
+ * 
  * 
  */
 public class ControlPersona {
