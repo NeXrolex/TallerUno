@@ -9,5 +9,20 @@ package co.udistrital.avanzada.tallerUno.controlador;
  * @author santi
  */
 public class ControlVehiculo {
-    
+
+    public void crearVehiculo() {
+
+    }
+
+    public void editarVehivulo() {
+
+    }
+
+    public void eliminarVehiculo() {
+
+    }
+
+    public void buscarVehiculo() {
+
+    }
 }
