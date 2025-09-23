@@ -6,16 +6,34 @@ package co.udistrital.avanzada.tallerUno.modelo;
 
 /**
  * Representa un vehiculo en el sistema
- * 
+ *
  * @author santi
  * @version 1.0
  */
 public class Vehiculo {
-    
+
+    protected String tipo;
+    protected String id;
     protected String potencia;
     protected String marca;
     protected String numChasis;
     protected String referencia;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getPotencia() {
         return potencia;
@@ -48,7 +66,5 @@ public class Vehiculo {
     public void setReferencia(String referencia) {
         this.referencia = referencia;
     }
-    
-    
-    
+
 }
