@@ -13,9 +13,10 @@ package co.udistrital.avanzada.tallerUno.modelo;
  */
 public class Scooter extends Vehiculo {
 
-    public Scooter(String potencia, String marca, String numChasis,
+    public Scooter(String tipo, String id,String potencia, String marca, String numChasis,
             String referencia) {
-        
+        super.tipo=tipo;
+        super.id=id;
         super.potencia = potencia;
         super.marca = marca;
         super.numChasis = numChasis;
