@@ -4,13 +4,25 @@
  */
 package co.udistrital.avanzada.tallerUno.controlador;
 
+import co.udistrital.avanzada.tallerUno.modelo.Vehiculo;
+import java.util.ArrayList;
+
 /**
  *
  * @author santi
  */
 public class ControlVehiculo {
+    private ArrayList<Vehiculo> vehiculosregistrados;
 
-    public void crearVehiculo() {
+    public ArrayList<Vehiculo> getVehiculosregistrados() {
+        return vehiculosregistrados;
+    }
+
+    public void setVehiculosregistrados(ArrayList<Vehiculo> vehiculosregistrados) {
+        this.vehiculosregistrados = vehiculosregistrados;
+    }
+    
+    public void crearVehiculo(String potencia, String marca, String numChasis, String referencia) {
 
     }
 
