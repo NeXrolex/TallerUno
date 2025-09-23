@@ -11,7 +11,6 @@ package co.udistrital.avanzada.tallerUno.controlador;
  * 
  */
 public class ControlPersona {
-    
-    
-    
+
+   
 }
