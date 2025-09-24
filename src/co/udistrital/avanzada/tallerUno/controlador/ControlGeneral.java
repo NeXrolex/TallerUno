@@ -9,8 +9,13 @@ package co.udistrital.avanzada.tallerUno.controlador;
  * @author Alex
  */
 public class ControlGeneral {
-    
+
     private ControlVehiculo controlVehiculo;
     private ControlPersona controlPersona;
-    
+
+    public ControlGeneral() {
+        ControlVehiculo controlvehiculo = new ControlVehiculo(this);
+        
+    }
+
 }
