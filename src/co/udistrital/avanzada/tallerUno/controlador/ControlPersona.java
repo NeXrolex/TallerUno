@@ -28,16 +28,16 @@ public class ControlPersona {
     }
     
     
-    public void crearProveedorInsumos(String nombre, String apellido, String cedula,
+    public void crearProveedorInsumos(int asignarId,String nombre, String apellido, String cedula,
                                       String numero, String correo) {
-        ProvedorInsumo proveedor = new ProvedorInsumo(nombre, apellido, cedula, numero, correo);
+        ProvedorInsumo proveedor = new ProvedorInsumo(asignarId,nombre, apellido, cedula, numero, correo);
         personas.add(proveedor);
     }
 
     // Crear proveedor de servicios
-    public void crearProveedorServicios(String nombre, String apellido, String cedula,
+    public void crearProveedorServicios(int asignarId,String nombre, String apellido, String cedula,
                                         String numero, String correo) {
-        ProvedorServicio proveedor = new ProvedorServicio(nombre, apellido, cedula, numero, correo);
+        ProvedorServicio proveedor = new ProvedorServicio(asignarId,nombre, apellido, cedula, numero, correo);
         personas.add(proveedor);
     } 
    
