@@ -16,7 +16,7 @@ import co.udistrital.tallerUno.vista.PantallaPrincipal;
 public class Launcher {
     
     public static void main(String arg[]){
-        
+
         new ControlGeneral();
       
     }
