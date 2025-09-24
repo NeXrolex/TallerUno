@@ -4,10 +4,19 @@
  */
 package co.udistrital.avanzada.tallerUno.controlador;
 
+import co.udistrital.tallerUno.vista.PantallaPrincipal;
+import java.awt.event.*;
+import javax.swing.*;
 /**
  *
- * @author santi
+ * @author Alex
  */
-public class ControlVista {
-    
+public class ControlVista implements ActionListener {
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+       
+    }
+
+   
 }

@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Representa un provedor en el sistema
  *
- * @author santi
+ * @author Alex
  * @version 1.0
  * 
  * Se extiende a ProvedorServicios e ProvedorInsumos

@@ -13,7 +13,8 @@ import java.util.Objects;
 
 /**
  *
- * @author santi
+ * @author Alex, Jeison
+ * @version 1.0
  */
 public class ControlVehiculo {
 

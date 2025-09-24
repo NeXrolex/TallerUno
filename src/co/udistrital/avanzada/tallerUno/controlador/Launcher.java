@@ -4,13 +4,21 @@
  */
 package co.udistrital.avanzada.tallerUno.controlador;
 
+import co.udistrital.tallerUno.vista.PantallaPrincipal;
+
+
+
 /**
- *
+ * Lanzador del programa
  * @author Alex
+ * @version 1.0
  */
-public class ControlGeneral {
+public class Launcher {
     
-    private ControlVehiculo controlVehiculo;
-    private ControlPersona controlPersona;
+    public static void main(String arg[]){
+        
+        new ControlGeneral();
+      
+    }
     
 }

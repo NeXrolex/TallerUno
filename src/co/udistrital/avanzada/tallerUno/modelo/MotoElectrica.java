@@ -7,7 +7,7 @@ package co.udistrital.avanzada.tallerUno.modelo;
 /**
  * Representa una moto electrica en el sistema
  *
- * @author santi
+ * @author Alex
  * @version 1.0
  *
  */
