@@ -4,7 +4,7 @@
  */
 package co.udistrital.avanzada.tallerUno.controlador;
 
-import co.udistrital.tallerUno.vista.PantallaPrincipal;
+import co.udistrital.avanzada.tallerUno.vista.PantallaPrincipal;
 
 
 
