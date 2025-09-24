@@ -19,15 +19,11 @@ public class Usuario extends Persona {
     private List<Vehiculo> vehiculos;
     private List<Usuario> amigos;
 
-    public Usuario(String nombre, String apellido, String cedula, String numero,
+    public Usuario(int asignarId,String nombre, String apellido, String cedula, String numero,
             String correo, String password) {
         
-        super.nombre = nombre;
-        super.apellido = apellido;
-        super.cedula = cedula;
-        super.numero = numero;
-        super.correo = correo;
-        this.password = password;
+        super(asignarId, nombre, apellido, cedula, numero, correo); // inicializa Persona
+        this.password = password; // inicializa el atributo propio
         this.vehiculos = new ArrayList<>();
         this.amigos = new ArrayList<>();
         

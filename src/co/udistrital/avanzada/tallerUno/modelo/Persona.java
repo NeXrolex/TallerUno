@@ -13,12 +13,30 @@ package co.udistrital.avanzada.tallerUno.modelo;
  * Esta clase sera extendida por Usuario,provedor y Administrador
  */
 public class Persona {
-
+    
+    protected int id;
     protected String nombre;
     protected String apellido;
     protected String cedula;
     protected String numero;
     protected String correo;
+    
+    public Persona(int asignarId, String nombre, String apellido, String cedula, String numero, String correo) {
+        this.id = asignarId;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.numero = numero;
+        this.correo = correo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
     public String getNombre() {
         return nombre;

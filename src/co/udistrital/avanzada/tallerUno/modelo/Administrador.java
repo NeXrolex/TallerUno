@@ -13,14 +13,10 @@ package co.udistrital.avanzada.tallerUno.modelo;
  */
 public class Administrador extends Persona {
 
-    public Administrador(String nombre, String apellido, String cedula,
+    public Administrador(int asignarId,String nombre, String apellido, String cedula,
             String numero, String correo) {
 
-        super.nombre = nombre;
-        super.apellido = apellido;
-        super.cedula = cedula;
-        super.numero = numero;
-        super.correo = correo;
+        super(asignarId, nombre, apellido, cedula, numero, correo); // inicializa Persona
 
     }
 

@@ -20,14 +20,10 @@ public class Provedor extends Persona {
     protected List<String> nombreProductos;
     protected List<Double> preciosProductos;
 
-    public Provedor(String nombre, String apellido, String cedula,
+    public Provedor(int asignarId,String nombre, String apellido, String cedula,
             String numero, String correo) {
 
-        super.nombre = nombre;
-        super.apellido = apellido;
-        super.cedula = cedula;
-        super.numero = numero;
-        super.correo = correo;
+        super(asignarId, nombre, apellido, cedula, numero, correo); // inicializa Persona
         this.nombreProductos = new ArrayList<>();
         this.preciosProductos = new ArrayList<>();
 

@@ -12,9 +12,9 @@ package co.udistrital.avanzada.tallerUno.modelo;
  */
 public class ProvedorServicio extends Provedor {
     
-    public ProvedorServicio(String nombre, String apellido, String cedula,
+    public ProvedorServicio(int asignarId,String nombre, String apellido, String cedula,
             String numero, String correo) {
-        super(nombre, apellido, cedula, numero, correo);
+        super(asignarId,nombre, apellido, cedula, numero, correo);
     }
     
 }
