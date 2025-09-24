@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.Objects;
 
 /**
+ * Clase encargada gestionar los vehiculos
  *
  * @author Alex, Jeison
  * @version 1.0
@@ -20,14 +21,22 @@ public class ControlVehiculo {
 
     private static final String SCOOTER = "scooter";
     private static final String MOTOELECTICA = "motoelectrica";
-
+    private ControlGeneral controlGeneral;
     private ArrayList<Vehiculo> vehiculosRegistrados;
 
-    private ControlVehiculo() {
-
+    ControlVehiculo(ControlGeneral controlGeneral ) {
+    this.controlGeneral=controlGeneral;
     }
 
     // creamos un metodo para crear un vehiculo de tipo scooter
+    /**
+     * @param tipo espesifica el tipo entre scooter y moto electrica 
+     * @param id   identificador de vehiculo
+     * @param potencia potencia nominal del motor
+     * @param marca marca del vehiculo
+     * @param numChasis identificcador del chasis
+     * @param referencia tipo segun la marca
+     */
     public void crearVehiculo(String tipo, String id, String potencia, String marca, String numChasis, String referencia) {
         //instanciamos una variable auxiliar para agragar vehiculos
         Vehiculo aux;
@@ -43,7 +52,12 @@ public class ControlVehiculo {
         }
 
     }
-
+    
+    /**
+     * 
+     * @param id
+     * @param scooter 
+     */
     public void editarVehiculo(String id, Scooter scooter) {
         // definimos un contador para establecer la "posicion del objeto a modificar"
         int i = 0;
@@ -60,7 +74,10 @@ public class ControlVehiculo {
         }
 
     }
-
+    /**
+     * 
+     * @param id 
+     */
     public void eliminarVehiculo(String id) {
         int i = 0;
         //definimos un ciclo 
@@ -73,7 +90,11 @@ public class ControlVehiculo {
             i++;
         }
     }
-
+    /**
+     * 
+     * @param id
+     * @return vehiculo 
+     */
     public Vehiculo buscarScooter(String id) {
         Vehiculo vehiculo = null;
         //definimos un ciclo para encontar el vehiculo a registrar
