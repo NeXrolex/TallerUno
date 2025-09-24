@@ -4,6 +4,7 @@
  */
 package co.udistrital.tallerUno.vista;
 
+import co.udistrital.avanzada.tallerUno.controlador.ControlVista;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -35,16 +36,18 @@ public class PantallaPrincipal extends JFrame {
 
     //Area de texto para mostrar mensdajes en el sistema
     public JTextArea txtOutput;
+    private ControlVista cVista;
 
     /**
      * Constructor que recibe el titulo en la barra de la ventana
      *
      * @param tittle
      */
-    public PantallaPrincipal(String tittle) {
+    public PantallaPrincipal(ControlVista cVista) {
 
-        super(tittle); //Llama al constructor padre JFrame para poner un titulo
-
+        super("rola pet"); //Llama al constructor padre JFrame para poner un titulo
+        this.cVista = cVista;
+        inicializar();
     }
 
     /**
@@ -52,12 +55,16 @@ public class PantallaPrincipal extends JFrame {
      * para personalizar la configuracion de la ventana agrega los botones,
      * areas de texto y etiquetas
      */
-    protected void frameInit() {
-        super.frameInit(); //LLama a la inicializacion base del Jframe
-
+    private void inicializar() {
         setDefaultCloseOperation(EXIT_ON_CLOSE); // Termina al cerrar la ventana
         setSize(500, 350);  //Tamano fiho de la ventana
         setLocationRelativeTo(null);   //centrar la ventana en la pantalla
+        setVisible(true);
+    }
+    
+    @Override
+    protected void frameInit() {
+        super.frameInit(); //LLama a la inicializacion base del Jframe     
 
         //Crea el panel principal con diseno BorderLayout
         JPanel panelPrincipal = new JPanel(new BorderLayout());
