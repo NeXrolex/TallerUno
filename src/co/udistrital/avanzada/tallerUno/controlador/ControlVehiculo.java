@@ -24,14 +24,14 @@ public class ControlVehiculo {
     private ControlGeneral controlGeneral;
     private ArrayList<Vehiculo> vehiculosRegistrados;
 
-    ControlVehiculo(ControlGeneral controlGeneral ) {
-    this.controlGeneral=controlGeneral;
+    ControlVehiculo(ControlGeneral controlGeneral) {
+        this.controlGeneral = controlGeneral;
     }
 
     // creamos un metodo para crear un vehiculo de tipo scooter
     /**
-     * @param tipo espesifica el tipo entre scooter y moto electrica 
-     * @param id   identificador de vehiculo
+     * @param tipo espesifica el tipo entre scooter y moto electrica
+     * @param id identificador de vehiculo
      * @param potencia potencia nominal del motor
      * @param marca marca del vehiculo
      * @param numChasis identificcador del chasis
@@ -52,11 +52,11 @@ public class ControlVehiculo {
         }
 
     }
-    
+
     /**
-     * 
+     *
      * @param id
-     * @param scooter 
+     * @param scooter
      */
     public void editarVehiculo(String id, Scooter scooter) {
         // definimos un contador para establecer la "posicion del objeto a modificar"
@@ -74,9 +74,10 @@ public class ControlVehiculo {
         }
 
     }
+
     /**
-     * 
-     * @param id 
+     *
+     * @param id
      */
     public void eliminarVehiculo(String id) {
         int i = 0;
@@ -90,10 +91,11 @@ public class ControlVehiculo {
             i++;
         }
     }
+
     /**
-     * 
+     *
      * @param id
-     * @return vehiculo 
+     * @return vehiculo
      */
     public Vehiculo buscarScooter(String id) {
         Vehiculo vehiculo = null;
