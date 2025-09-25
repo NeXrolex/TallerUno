@@ -7,9 +7,8 @@ import java.util.ArrayList;
  * ControlPersona administra todas las personas del sistema:
  * Usuarios, Proveedores y el Administrador único.
  * 
- * - SRP: su única responsabilidad es gestionar personas.
- * - LSP: todos los objetos se tratan como Persona.
- * - DIP: se comunica con ControlGeneral mediante inyección.
+ * @autor Santiago, Alex , Jeison
+ * @version 1.0
  */
 public class ControlPersona {
 
@@ -46,10 +45,6 @@ public class ControlPersona {
         personas.add(prov);
     }
 
-    // ==========================
-    // Métodos de búsqueda
-    // ==========================
-
     public String buscarPersona(String cedula) {
         for (Persona p : personas) {
             if (p.getCedula().equalsIgnoreCase(cedula)) {
@@ -60,9 +55,6 @@ public class ControlPersona {
         return "Persona no encontrada";
     }
 
-    // ==========================
-    // Validación de Usuario
-    // ==========================
 
     public boolean validarUsuario(String cedula, String password) {
         for (Persona p : personas) {
@@ -75,9 +67,6 @@ public class ControlPersona {
         return false;
     }
 
-    // ==========================
-    // Gestión de Amigos
-    // ==========================
 
     public String agregarAmigo(String cedulaUsuario, String cedulaAmigo) {
         Usuario usuario = null, amigo = null;
@@ -100,9 +89,6 @@ public class ControlPersona {
         }
     }
 
-    // ==========================
-    // Getters
-    // ==========================
 
     public ArrayList<Persona> getPersonas() {
         return personas;
@@ -111,4 +97,5 @@ public class ControlPersona {
     public Administrador getAdministrador() {
         return administrador;
     }
+
 }
