@@ -22,18 +22,11 @@ public class ControlPersona {
         crearAdministradorPorDefecto();
     }
 
-    /**
-     * Crea un administrador por defecto al iniciar el sistema
-     * (no se registra desde la vista).
-     */
     private void crearAdministradorPorDefecto() {
         administrador = new Administrador("Admin", "Sistema", "0000", "000000", "admin@rolapet.com");
         personas.add(administrador);
     }
 
-    // ==========================
-    // Métodos de creación
-    // ==========================
 
     public void crearUsuario(String nombre, String apellido, String cedula, String numero, String correo, String password) {
         Usuario usuario = new Usuario(nombre, apellido, cedula, numero, correo, password);
@@ -99,3 +92,4 @@ public class ControlPersona {
     }
 
 }
+
