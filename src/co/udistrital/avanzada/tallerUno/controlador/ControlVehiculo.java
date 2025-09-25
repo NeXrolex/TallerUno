@@ -25,6 +25,7 @@ public class ControlVehiculo {
     private ArrayList<Vehiculo> vehiculosRegistrados;
 
     ControlVehiculo(ControlGeneral controlGeneral) {
+        this.vehiculosRegistrados= new ArrayList<>();
         this.controlGeneral = controlGeneral;
     }
 
