@@ -1,21 +1,83 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package co.udistrital.avanzada.tallerUno.controlador;
 
 /**
- *
- * @author Alex
+ * ControlGeneral es el orquestador principal del sistema.
+ * 
+ * - Crea y mantiene los controladores de Persona, Vehículo y Vista.
+ * - Expone métodos para delegar la lógica hacia los controladores especializados.
+ * - Usa inyección de dependencias para bajo acoplamiento.
  */
 public class ControlGeneral {
 
     private ControlVehiculo controlVehiculo;
     private ControlPersona controlPersona;
+    private ControlVista controlVista;
 
     public ControlGeneral() {
-        ControlVehiculo controlvehiculo = new ControlVehiculo(this);
-        
+        // Inyección: se pasa this para que cada controlador
+        // pueda llamar de regreso a ControlGeneral si lo necesita
+        this.controlPersona = new ControlPersona(this);
+        this.controlVehiculo = new ControlVehiculo(this);
+        this.controlVista = new ControlVista(this);
+
+        // Arranca la vista principal
+        this.controlVista.menu();
     }
 
+    // =====================
+    // Delegación a Persona
+    // =====================
+    public void crearUsuario(String n, String a, String c, String num, String correo, String pass) {
+        controlPersona.crearUsuario(n, a, c, num, correo, pass);
+    }
+
+    public boolean validarUsuario(String cedula, String pass) {
+        return controlPersona.validarUsuario(cedula, pass);
+    }
+
+    public String agregarAmigo(String cedulaU, String cedulaAmigo) {
+        return controlPersona.agregarAmigo(cedulaU, cedulaAmigo);
+    }
+
+    public void crearProveedorServicios(String n, String a, String c, String num, String correo) {
+        controlPersona.crearProveedorServicios(n, a, c, num, correo);
+    }
+
+    public String buscarPersona(String cedula) {
+        return controlPersona.buscarPersona(cedula);
+    }
+
+    // =====================
+    // Delegación a Vehículo
+    // =====================
+    public void crearVehiculo(String tipo, String id, String potencia, String marca, String numChasis, String referencia) {
+        controlVehiculo.crearVehiculo(tipo, id, potencia, marca, numChasis, referencia);
+    }
+
+    public void editarVehiculo(String id, co.udistrital.avanzada.tallerUno.modelo.Scooter scooter) {
+        controlVehiculo.editarVehiculo(id, scooter);
+    }
+
+    public void eliminarVehiculo(String id) {
+        controlVehiculo.eliminarVehiculo(id);
+    }
+
+    public co.udistrital.avanzada.tallerUno.modelo.Vehiculo buscarVehiculo(String id) {
+        return controlVehiculo.buscarScooter(id);
+    }
+
+    // =====================
+    // Getters
+    // =====================
+    public ControlVehiculo getControlVehiculo() {
+        return controlVehiculo;
+    }
+
+    public ControlPersona getControlPersona() {
+        return controlPersona;
+    }
+
+    public ControlVista getControlVista() {
+        return controlVista;
+    }
 }
