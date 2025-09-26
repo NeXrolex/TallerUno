@@ -124,6 +124,17 @@ public class ControlGeneral {
         controlVehiculo.crearVehiculo(tipo, id, potencia, marca, numChasis,
                 referencia);
     }
+    
+    /**
+     * Se encarga de validar si existe un provedor para ingresar
+     * 
+     * @param cedula cedula del provedor
+     * @param password contrasena del provedor 
+     * @return true si existe los datos o false si no existe
+     */
+    public boolean validarProveedor(String cedula, String password) {
+        return controlPersona.validarProveedor(cedula, password);
+    }
 
     /**
      * Se encarga de editar un vehiculo
@@ -131,10 +142,11 @@ public class ControlGeneral {
      * @param id identificador del vehiculo
      * @param scooter scooter electrico
      */
-    public void editarVehiculo(String id, co.udistrital.avanzada.tallerUno.modelo.Scooter scooter) {
+    public void editarVehiculo(String id, co.udistrital.avanzada.tallerUno
+            .modelo.Scooter scooter) {
         controlVehiculo.editarVehiculo(id, scooter);
     }
-
+    
     public void eliminarVehiculo(String id) {
         controlVehiculo.eliminarVehiculo(id);
     }
