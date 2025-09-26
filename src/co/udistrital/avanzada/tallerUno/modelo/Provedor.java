@@ -16,7 +16,8 @@
      * Se extiende a ProvedorServicios e ProvedorInsumos
      */
     public class Provedor extends Persona {
-
+        
+        protected String password;
         protected List<String> nombreProductos;
         protected List<Double> preciosProductos;
 
