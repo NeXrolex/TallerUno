@@ -63,11 +63,29 @@ public class ControlPersona {
      * @param cedula documento del provedor
      * @param numero numero de contacto
      * @param correo correo de contacto
+     * @param password contrasena del provedorServicios
      */
     public void crearProveedorServicios(String nombre, String apellido,
-            String cedula, String numero, String correo) {
+            String cedula, String numero, String correo, String password) {
         Persona prov = new ProvedorServicio(nombre, apellido, cedula,
-                numero, correo);
+                numero, correo, password);
+        personas.add(prov);
+    }
+
+    /**
+     * crea un provedor de insumos
+     *
+     * @param nombre nombre del provedor
+     * @param apellido apellido del provedor
+     * @param cedula documento del provedor
+     * @param numero numero de contacto
+     * @param correo correo de contacto
+     * @param password contrasena del provedorInsumos
+     */
+    public void crearProveedorInsumos(String nombre, String apellido,
+            String cedula, String numero, String correo, String password) {
+        Persona prov = new ProvedorInsumo(nombre, apellido, cedula,
+                numero, correo, password);
         personas.add(prov);
     }
 
@@ -110,6 +128,25 @@ public class ControlPersona {
     }
 
     /**
+     * Valida si existe el provedor
+     *
+     * @param cedula identificador del provedor
+     * @param password contrasena
+     * @return true si es correccto o false si no existe el provedor
+     */
+    public boolean validarProveedor(String cedula, String password) {
+        for (Persona p : personas) {
+            if (p instanceof Provedor prov) {
+                if (prov.getCedula().equalsIgnoreCase(cedula)
+                        && prov.getPassword().equals(password)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      *
      * @param cedulaUsuario cedula del usuario que agrega
      * @param cedulaAmigo cedula del amigo a anadir
@@ -144,6 +181,53 @@ public class ControlPersona {
         } else {
             return "El amigo ya estaba en la lista.";
         }
+    }
+
+    /**
+     * Se encarga de agregar un producto de un provedor
+     *
+     * @param cedula cedula para asociar un provedor
+     * @param producto producto del proveedor
+     * @param precio precio del producto
+     * @return
+     */
+    public String agregarProductoAProveedor(String cedula, String producto,
+            double precio) {
+        for (Persona p : personas) {
+            if (p instanceof Provedor prov) {
+                if (prov.getCedula().equalsIgnoreCase(cedula)) {
+                    prov.getNombreProductos().add(producto);
+                    prov.getPreciosProductos().add(precio);
+                    return "Producto agregado correctamente.";
+                }
+            }
+        }
+        return "Proveedor no encontrado.";
+    }
+
+    /**
+     * Busca un provedor por su cedula y lista sus productos
+     *
+     * @param cedula identificador del provedor
+     * @return una cadena con el listado de productos y precios del provedor o
+     * en su defecto el provedor no encontrado
+     */
+    public String listarProductosDeProveedor(String cedula) {
+        for (Persona p : personas) {
+            if (p instanceof Provedor prov) {
+                if (prov.getCedula().equalsIgnoreCase(cedula)) {
+                    StringBuilder sb = new StringBuilder("Productos de "
+                            + prov.getNombre() + ":\n");
+                    for (int i = 0; i < prov.getNombreProductos().size(); i++) {
+                        sb.append("- ").append(prov.getNombreProductos().get(i))
+                                .append(" ($").append(prov.getPreciosProductos()
+                                .get(i)).append(")\n");
+                    }
+                    return sb.toString();
+                }
+            }
+        }
+        return "Proveedor no encontrado.";
     }
 
     /**
