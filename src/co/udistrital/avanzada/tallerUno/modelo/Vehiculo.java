@@ -18,11 +18,21 @@ public class Vehiculo {
     protected String marca;
     protected String numChasis;
     protected String referencia;
-
+    
+    /**
+     * Obtiene el tipo de vehículo.
+     *
+     * @return El tipo de vehículo como una cadena de texto.
+     */
     public String getTipo() {
         return tipo;
     }
-
+    
+    /**
+     * Establece el tipo de vehículo.
+     *
+     * @param tipo El nuevo tipo de vehículo.
+     */
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
