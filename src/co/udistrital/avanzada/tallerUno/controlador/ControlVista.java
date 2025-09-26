@@ -58,28 +58,56 @@ public class ControlVista implements ActionListener {
     private void menuUsuarioOpciones() {
         String[] opciones = {"Crear Cuenta", "Ingresar"};
         int opcion = pantallaPrincipal.mostrarOpciones("Usuario", opciones);
+        String nombre = "";
+        String cedula = "";
+        String pass = "";
+        String apellido = "";
+        String numero = "";
+        String correo = "";
+        switch (opcion) {
+            case 0:
+                // Crear cuenta
+                nombre = pantallaPrincipal.pedirDato("Nombre:");
+                if (nombre == null) {
+                    break;
+                }
+                apellido = pantallaPrincipal.pedirDato("Apellido:");
+                if (apellido == null) {
+                    break;
+                }
+                cedula = pantallaPrincipal.pedirDato("Cédula:");
+                if (cedula == null) {
+                    break;
+                }
+                numero = pantallaPrincipal.pedirDato("Número:");
+                if (numero == null) {
+                    break;
+                }
 
-        if (opcion == 0) { // Crear cuenta
-            String nombre = pantallaPrincipal.pedirDato("Nombre:");
-            String apellido = pantallaPrincipal.pedirDato("Apellido:");
-            String cedula = pantallaPrincipal.pedirDato("Cédula:");
-            String numero = pantallaPrincipal.pedirDato("Número:");
-            String correo = pantallaPrincipal.pedirDato("Correo:");
-            String pass = pantallaPrincipal.pedirDato("Contraseña:");
+                correo = pantallaPrincipal.pedirDato("Correo:");
+                if (correo == null) {
+                    break;
+                }
 
-            controlGeneral.crearUsuario(nombre, apellido, cedula, numero, correo, pass);
-            pantallaPrincipal.mostrarMensaje("Usuario creado: " + nombre + " " + apellido);
+                pass = pantallaPrincipal.pedirDato("Contraseña:");
+                if (pass == null) {
+                    break;
+                }
+                controlGeneral.crearUsuario(nombre, apellido, cedula, numero, correo, pass);
+                pantallaPrincipal.mostrarMensaje("Usuario creado: " + nombre + " " + apellido);
+                break;
+            case 1:
 
-        } else if (opcion == 1) { // Ingresar
-            String cedula = pantallaPrincipal.pedirDato("Cédula:");
-            String pass = pantallaPrincipal.pedirDato("Contraseña:");
+                cedula = pantallaPrincipal.pedirDato("Cédula:");
+                pass = pantallaPrincipal.pedirDato("Contraseña:");
 
-            if (controlGeneral.validarUsuario(cedula, pass)) {
-                pantallaPrincipal.mostrarMensaje("Ingreso exitoso.");
-                menuUsuario(cedula);
-            } else {
-                pantallaPrincipal.mostrarMensaje("Credenciales incorrectas.");
-            }
+                if (controlGeneral.validarUsuario(cedula, pass)) {
+                    pantallaPrincipal.mostrarMensaje("Ingreso exitoso.");
+                    menuUsuario(cedula);
+                } else {
+                    pantallaPrincipal.mostrarMensaje("Credenciales incorrectas.");
+                }
+                break;
         }
     }
 
@@ -141,7 +169,7 @@ public class ControlVista implements ActionListener {
 
     private void menuAdmin() {
         String[] opciones = {"Crear Proveedor Servicio", "Crear Proveedor "
-                + "Insumos", "Salir"};
+            + "Insumos", "Salir"};
         int opcion = pantallaPrincipal.mostrarOpciones("Administrador",
                 opciones);
 
