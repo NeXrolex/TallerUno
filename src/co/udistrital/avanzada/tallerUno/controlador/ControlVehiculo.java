@@ -82,14 +82,19 @@ public class ControlVehiculo {
      */
     public void eliminarVehiculo(String id) {
         int i = 0;
-        //definimos un ciclo 
+        boolean bandera = false;
+        //definimos un ciclo  
         for (Vehiculo vehiculosRegistrado : vehiculosRegistrados) {
             // encontramos el objeto y eliminamos los datos
             if (vehiculosRegistrado.getId().equalsIgnoreCase(id)) {
-                vehiculosRegistrados.remove(i);
+                bandera = true;
+                break;
             }
             //contador para saber la posicion del objeto a eliminar
             i++;
+        }
+        if(bandera){
+            vehiculosRegistrados.remove(i);
         }
     }
 

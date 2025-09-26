@@ -99,8 +99,13 @@ public class ControlVista implements ActionListener {
             case 1:
 
                 cedula = pantallaPrincipal.pedirDato("Cédula:");
+                if (cedula == null) {
+                    break;
+                }
                 pass = pantallaPrincipal.pedirDato("Contraseña:");
-
+                if (pass == null) {
+                    break;
+                }
                 if (controlGeneral.validarUsuario(cedula, pass)) {
                     pantallaPrincipal.mostrarMensaje("Ingreso exitoso.");
                     menuUsuario(cedula);
