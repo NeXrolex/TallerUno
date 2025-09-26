@@ -13,8 +13,8 @@ package co.udistrital.avanzada.tallerUno.modelo;
 public class ProvedorInsumo extends Provedor {
     
     public ProvedorInsumo(String nombre, String apellido, String cedula,
-            String numero, String correo) {
-        super(nombre, apellido, cedula, numero, correo);
+            String numero, String correo,String password) {
+        super(nombre, apellido, cedula, numero, correo, password);
     }
     
 }
