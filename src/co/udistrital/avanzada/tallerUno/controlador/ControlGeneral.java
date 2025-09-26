@@ -27,8 +27,8 @@ public class ControlGeneral {
     // =====================
     // Delegación a Persona
     // =====================
-    public void crearUsuario(String n, String a, String c, String num, String correo, String pass) {
-        controlPersona.crearUsuario(n, a, c, num, correo, pass);
+    public void crearUsuario(String nombre, String apellido, String cedula, String num, String correo, String pass) {
+        controlPersona.crearUsuario(nombre, apellido, cedula, num, correo, pass);
     }
 
     public boolean validarUsuario(String cedula, String pass) {
@@ -39,8 +39,12 @@ public class ControlGeneral {
         return controlPersona.agregarAmigo(cedulaU, cedulaAmigo);
     }
 
-    public void crearProveedorServicios(String n, String a, String c, String num, String correo) {
-        controlPersona.crearProveedorServicios(n, a, c, num, correo);
+    public void crearProveedorServicios(String nombre, String apellido, String cedula, String num, String correo, String password) {
+        controlPersona.crearProveedorServicios(nombre, apellido, cedula, num, correo, password);
+    }
+    
+    public void crearProveedorInsumos(String nombre, String apellido, String cedula, String num, String correo, String password) {
+        controlPersona.crearProveedorInsumos(nombre, apellido, cedula, num, correo, password);
     }
 
     public String buscarPersona(String cedula) {
