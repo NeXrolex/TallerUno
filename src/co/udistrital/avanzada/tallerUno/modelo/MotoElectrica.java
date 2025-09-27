@@ -12,9 +12,20 @@ package co.udistrital.avanzada.tallerUno.modelo;
  *
  */
 public class MotoElectrica extends Vehiculo {
-
+    
+    /**
+     * Constructor que inicializa una moto eléctrica con sus características básicas.
+     * 
+     * @param tipo Tipo de vehículo (normalmente "moto eléctrica").
+     * @param id Identificador único de la moto eléctrica.
+     * @param potencia Potencia del vehículo.
+     * @param marca Marca de la moto.
+     * @param numChasis Número de chasis.
+     * @param referencia Modelo o referencia del vehículo.
+     */
     public MotoElectrica(String tipo, String id,String potencia, String marca, String numChasis,
             String referencia) {
+        // Inicialización de atributos heredados de Vehiculo
         super.tipo=tipo;
         super.id=id;
         super.potencia = potencia;
