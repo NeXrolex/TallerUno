@@ -55,39 +55,7 @@ public class ControlPersona {
         personas.add(usuario);
     }
 
-    /**
-     * Crea un provedor de servicios
-     *
-     * @param nombre nombre del provedor
-     * @param apellido apellido del provedor
-     * @param cedula documento del provedor
-     * @param numero numero de contacto
-     * @param correo correo de contacto
-     * @param password contrasena del provedorServicios
-     */
-    public void crearProveedorServicios(String nombre, String apellido,
-            String cedula, String numero, String correo, String password) {
-        Persona prov = new ProvedorServicio(nombre, apellido, cedula,
-                numero, correo, password);
-        personas.add(prov);
-    }
-
-    /**
-     * crea un provedor de insumos
-     *
-     * @param nombre nombre del provedor
-     * @param apellido apellido del provedor
-     * @param cedula documento del provedor
-     * @param numero numero de contacto
-     * @param correo correo de contacto
-     * @param password contrasena del provedorInsumos
-     */
-    public void crearProveedorInsumos(String nombre, String apellido,
-            String cedula, String numero, String correo, String password) {
-        Persona prov = new ProvedorInsumo(nombre, apellido, cedula,
-                numero, correo, password);
-        personas.add(prov);
-    }
+    
 
     /**
      * Busca una persona registrada en el sistema por su cedula

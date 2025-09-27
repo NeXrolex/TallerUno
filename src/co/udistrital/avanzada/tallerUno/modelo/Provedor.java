@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Representa un provedor en el sistema
+ * Representa un proveedor en el sistema
  *
  * @author Alex
  * @version 1.0
@@ -20,6 +20,7 @@ public class Provedor extends Persona {
     protected String password;
     protected List<String> nombreProductos;
     protected List<Double> preciosProductos;
+    protected String logo;
 
     /**
      * Constructor que asigna los valores de un provedor
@@ -42,7 +43,6 @@ public class Provedor extends Persona {
         this.nombreProductos = new ArrayList<>();
         this.preciosProductos = new ArrayList<>();
         this.password = password;
-
     }
 
     /**
@@ -71,32 +71,49 @@ public class Provedor extends Persona {
     public List<Double> getPreciosProductos() {
         return preciosProductos;
     }
-    
+
     /**
      * Asigna una lista de precios correspondientes a los productos ofrecidos.
-     * 
+     *
      * @param preciosProductos Lista de precios de productos.
      */
     public void setPreciosProductos(List<Double> preciosProductos) {
         this.preciosProductos = preciosProductos;
     }
-    
+
     /**
      * Obtiene la contraseña del proveedor.
-     * 
+     *
      * @return Contraseña del proveedor.
      */
     public String getPassword() {
         return password;
     }
-    
+
     /**
      * Asigna la contraseña para el proveedor.
-     * 
+     *
      * @param password Nueva contraseña a asignar.
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     * Obtiene el logo del proveedor.
+     *
+     * @return Logo del proveedor.
+     */
+    public String getLogo() {
+        return logo;
+    }
+
+    /**
+     * Asigna un logo al proveedor.
+     *
+     * @param logo Logo a asignar.
+     */
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
 }
