@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * ControlVista escucha eventos de PantallaPrincipal y coordina la interacción
  * entre la vista y ControlGeneral.
  *
- * @author Alex, Jeison
+ * @author Alex, Jeison , Santiago
  * @version 1.0
  */
 public class ControlVista implements ActionListener {
@@ -19,7 +19,15 @@ public class ControlVista implements ActionListener {
     private final ControlGeneral controlGeneral;
     private final PantallaPrincipal pantallaPrincipal;
 
-    public ControlVista(ControlGeneral controlGeneral, ControlProveedor controlProveedor) {
+    /**
+     * Constructor que recibe la inyeccion del control general e instancia a la
+     * pantalla
+     *
+     * @param controlGeneral
+     *
+     */
+    public ControlVista(ControlGeneral controlGeneral,
+            ControlProveedor controlProveedor) {
 
         this.controlGeneral = controlGeneral;
         this.controlProveedor = controlProveedor;
@@ -27,6 +35,9 @@ public class ControlVista implements ActionListener {
         agregarListeners();
     }
 
+    /**
+     * Método privado que agrega los actionListener a los botones de la pantlla
+     */
     private void agregarListeners() {
         pantallaPrincipal.btnUsuario.addActionListener(this);
         pantallaPrincipal.btnAdmin.addActionListener(this);
@@ -34,14 +45,24 @@ public class ControlVista implements ActionListener {
         pantallaPrincipal.btnSalir.addActionListener(this);
     }
 
+    /**
+     * Método para mostrar el menú principal (pantalla principal).
+     */
     public void menu() {
         pantallaPrincipal.setVisible(true);
     }
 
+    /**
+     * Maneja eventos de acción para los botones de la interfaz. Dependiendo del
+     * origen del evento ejecuta el menú correspondiente o acciones específicas.
+     *
+     * @param e Evento de acción generado al interactuar con la interfaz
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Object src = e.getSource();
-
+        /* Detectamos botón que generó el evento y ejecutamos la acción 
+        correspondiente*/
         if (src == pantallaPrincipal.btnUsuario) {
             menuUsuarioOpciones();
 
@@ -49,17 +70,23 @@ public class ControlVista implements ActionListener {
             menuAdmin();
 
         } else if (src == pantallaPrincipal.btnProveedor) {
+            // Solicitar cédula y mostrar resultado búsqueda persona
             String cedula = pantallaPrincipal.pedirDato("Ingrese su cédula:");
             pantallaPrincipal.mostrarMensaje(controlGeneral
                     .buscarPersona(cedula));
 
         } else if (src == pantallaPrincipal.btnSalir) {
+            // Mostrar mensaje y cerrar aplicación
             pantallaPrincipal.mostrarMensaje("Cerrando aplicación...");
             System.exit(0);
         }
     }
 
-    // ---------------- Menús específicos ----------------
+    //Menús específicos 
+    /**
+     * Menú para opciones del usuario, permite crear cuenta o ingresar. Realiza
+     * validaciones básicas y comunica con ControlGeneral para las operaciones.
+     */
     private void menuUsuarioOpciones() {
         String[] opciones = {"Crear Cuenta", "Ingresar"};
         int opcion = pantallaPrincipal.mostrarOpciones("Usuario", opciones);
@@ -98,11 +125,14 @@ public class ControlVista implements ActionListener {
                 if (pass == null) {
                     break;
                 }
-                controlGeneral.crearUsuario(nombre, apellido, cedula, numero, correo, pass);
-                pantallaPrincipal.mostrarMensaje("Usuario creado: " + nombre + " " + apellido);
+                // Delegar creación de usuario al controlador general
+                controlGeneral.crearUsuario(nombre, apellido, cedula,
+                        numero, correo, pass);
+                pantallaPrincipal.mostrarMensaje("Usuario creado: " + nombre
+                        + " " + apellido);
                 break;
             case 1:
-
+                // Ingreso solicitando cédula y contraseña, luego validando
                 cedula = pantallaPrincipal.pedirDato("Cédula:");
                 if (cedula == null) {
                     break;
@@ -115,12 +145,19 @@ public class ControlVista implements ActionListener {
                     pantallaPrincipal.mostrarMensaje("Ingreso exitoso.");
                     menuUsuario(cedula);
                 } else {
-                    pantallaPrincipal.mostrarMensaje("Credenciales incorrectas.");
+                    pantallaPrincipal.mostrarMensaje("Credenciales"
+                            + " incorrectas.");
                 }
                 break;
         }
     }
 
+    /**
+     * Menú principal para el usuario ya autenticado. Permite añadir o borrar
+     * vehículos, agregar amigos, editar vehículos o cerrar sesión.
+     *
+     * @param cedulaUsuario Cédula del usuario autenticado
+     */
     private void menuUsuario(String cedulaUsuario) {
         String[] opciones = {"Añadir Vehículo", "Borrar Vehículo",
             "Agregar Amigo", "Editar vehiculo", "Mostrar eventos", "Cerrar Sesión"};
@@ -137,6 +174,7 @@ public class ControlVista implements ActionListener {
                             .mostrarOpciones("Tipo de Vehículo", tipos);
 
                     if (tipoIndex >= 0) {
+                        // Pedir datos del vehículo
                         String tipo = tipos[tipoIndex];
                         String id = pantallaPrincipal
                                 .pedirDato("ID del vehículo:");
@@ -150,6 +188,7 @@ public class ControlVista implements ActionListener {
                         }
                         String marca = pantallaPrincipal
                                 .pedirDato("Marca:");
+
                         if (marca == null) {
                             break;
                         }
@@ -195,6 +234,7 @@ public class ControlVista implements ActionListener {
                                 + "\n " + vehiculo.getMarca()
                                 + "\n" + vehiculo.getNumChasis()
                                 + "\n" + vehiculo.getPotencia());
+
                         String marca = pantallaPrincipal.pedirDato("marca a cambiar:");
                         if (marca == null) {
                             break;
@@ -211,13 +251,15 @@ public class ControlVista implements ActionListener {
                         if (referencia == null) {
                             break;
                         }
+
                         vehiculo.setMarca(marca);
                         vehiculo.setNumChasis(numChasis);
                         vehiculo.setPotencia(potencia);
                         vehiculo.setReferencia(referencia);
                         controlGeneral.editarVehiculo(vehiculo);
                     } else {
-                        pantallaPrincipal.mostrarMensaje("No existe el id ingresado");
+                        pantallaPrincipal.mostrarMensaje("No existe el id"
+                                + " ingresado");
                     }
 
                 }
@@ -244,13 +286,18 @@ public class ControlVista implements ActionListener {
         }
     }
 
+    /**
+     * Menú para administrador, permite crear proveedores y publicar eventos.
+     */
     private void menuAdmin() {
 
         String[] opciones = {"Crear Proveedor", "Publicar evento", "Salir"};
 
-        int opcion = pantallaPrincipal.mostrarOpciones("Administrador", opciones);
+        int opcion = pantallaPrincipal.mostrarOpciones("Administrador",
+                opciones);
         switch (opcion) {
             case 0:
+
                 String tipo = pantallaPrincipal.pedirDato("Especifique "
                         + "el tipo proveedor: (insumos o servicios)");
                 if (tipo == null) {
@@ -278,6 +325,8 @@ public class ControlVista implements ActionListener {
                     break;
                 }
                 String password = pantallaPrincipal.pedirDato("Contraseña:");
+
+                // Delegar creación al controlador de proveedores
                 if (password == null) {
                     break;
                 }
@@ -287,6 +336,7 @@ public class ControlVista implements ActionListener {
                         + nombre + " " + apellido);
                 break;
             case 1:
+
                 String numeroEvento = pantallaPrincipal.pedirDato("Asigne "
                         + "un numero para su evento");
                 if (numeroEvento == null) {
@@ -299,6 +349,7 @@ public class ControlVista implements ActionListener {
                 }
                 String descripcionEvento = pantallaPrincipal.pedirDato("Describa"
                         + " el evento a agregar");
+
                 if (descripcionEvento == null) {
                     break;
                 }

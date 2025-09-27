@@ -34,18 +34,23 @@ public class ControlGeneral {
     }
 
     private void inicializarProveedores() {
-        controlProveedor.crearProveedor("servicios", "Bike & Scooters Serv. tecnico", "Jose", "785", "3013334444", "jose@servicios.com", "password");
-        controlProveedor.crearProveedor("insumos", "Protecciones y Accesorios", "Laura", "598", "3001112222", "laura@insumos.com", "password");
+        controlProveedor.crearProveedor("servicios", "Bike & Scooters Serv"
+                + ". tecnico", "Jose", "785", "3013334444",
+                "jose@servicios.com", "password");
+        controlProveedor.crearProveedor("insumos", "Protecciones y Accesorios",
+                "Laura", "598", "3001112222", "laura@insumos.com", "password");
     }
 
     public void crearProveedorServicios(String nombre, String apellido,
             String cedula, String num, String correo, String password) {
-        controlProveedor.crearProveedor("servicios", nombre, apellido, cedula, num, correo, password);
+        controlProveedor.crearProveedor("servicios", nombre, apellido,
+                cedula, num, correo, password);
     }
 
     public void crearProveedorInsumos(String nombre, String apellido,
             String cedula, String num, String correo, String password) {
-        controlProveedor.crearProveedor("insumos", nombre, apellido, cedula, num, correo, password);
+        controlProveedor.crearProveedor("insumos", nombre, apellido,
+                cedula, num, correo, password);
     }
 
     public ControlProveedor getControlProveedor() {
@@ -127,8 +132,10 @@ public class ControlGeneral {
         return controlPersona.validarProveedor(cedula, password);
     }
 
-    public void adicionarVehiculo(String numeroEvento, String tipoEvento, String descripcionEvento, String fecha) {
-        controlPersona.adicionarEvento(numeroEvento, tipoEvento, descripcionEvento, fecha);
+    public void adicionarVehiculo(String numeroEvento, String tipoEvento,
+            String descripcionEvento, String fecha) {
+        controlPersona.adicionarEvento(numeroEvento, tipoEvento,
+                descripcionEvento, fecha);
     }
 
     /**
