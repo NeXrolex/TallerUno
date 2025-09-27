@@ -20,7 +20,8 @@ public class Provedor extends Persona {
     protected String password;
     protected List<String> nombreProductos;
     protected List<Double> preciosProductos;
-
+    protected String logo;
+    
     public Provedor(String nombre, String apellido, String cedula,
             String numero, String correo, String password) {
 
@@ -59,4 +60,6 @@ public class Provedor extends Persona {
         this.password = password;
     }
 
+
+    
 }

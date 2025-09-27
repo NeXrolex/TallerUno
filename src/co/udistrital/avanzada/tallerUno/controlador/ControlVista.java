@@ -13,11 +13,14 @@ import java.awt.event.ActionListener;
  */
 public class ControlVista implements ActionListener {
 
+    private final ControlProveedor controlProveedor;
     private final ControlGeneral controlGeneral;
     private final PantallaPrincipal pantallaPrincipal;
 
-    public ControlVista(ControlGeneral controlGeneral) {
+    public ControlVista(ControlGeneral controlGeneral,ControlProveedor controlProveedor) {
+        
         this.controlGeneral = controlGeneral;
+        this.controlProveedor = controlProveedor;
         this.pantallaPrincipal = new PantallaPrincipal("RolaPet");
         agregarListeners();
     }
@@ -173,38 +176,28 @@ public class ControlVista implements ActionListener {
     }
 
     private void menuAdmin() {
-        String[] opciones = {"Crear Proveedor Servicio", "Crear Proveedor "
-            + "Insumos", "Salir"};
-        int opcion = pantallaPrincipal.mostrarOpciones("Administrador",
-                opciones);
-
+        
+        String[] opciones = {"Crear Proveedor","Publicar evento", "Salir"};
+        
+        int opcion = pantallaPrincipal.mostrarOpciones("Administrador", opciones);
         if (opcion == 0) {
+            String tipo = pantallaPrincipal.pedirDato("Especifique el tipo proveedor: (insumos o servicios)");
             String nombre = pantallaPrincipal.pedirDato("Nombre proveedor:");
             String apellido = pantallaPrincipal.pedirDato("Apellido "
                     + "proveedor:");
             String cedula = pantallaPrincipal.pedirDato("Cédula:");
             String numero = pantallaPrincipal.pedirDato("Número:");
             String correo = pantallaPrincipal.pedirDato("Correo:");
-            String pass = pantallaPrincipal.pedirDato("Contraseña:");
-
-            controlGeneral.crearProveedorServicios(nombre, apellido,
-                    cedula, numero, correo, pass);
-            pantallaPrincipal.mostrarMensaje("Proveedor de "
-                    + "servicios registrado: " + nombre + " " + apellido);
-
+            String password = pantallaPrincipal.pedirDato("Contraseña:");
+            
+            controlProveedor.crearProveedor(tipo, nombre, apellido,
+                    cedula, numero, correo, password);
+            pantallaPrincipal.mostrarMensaje("Proveedor registrado: "
+                    + nombre + " " + apellido);
         } else if (opcion == 1) {
-            String nombre = pantallaPrincipal.pedirDato("Nombre proveedor:");
-            String apellido = pantallaPrincipal.pedirDato("Apellido"
-                    + " proveedor:");
-            String cedula = pantallaPrincipal.pedirDato("Cédula:");
-            String numero = pantallaPrincipal.pedirDato("Número:");
-            String correo = pantallaPrincipal.pedirDato("Correo:");
-            String pass = pantallaPrincipal.pedirDato("Contraseña:");
-
-            controlGeneral.crearProveedorInsumos(nombre, apellido, cedula,
-                    numero, correo, pass);
-            pantallaPrincipal.mostrarMensaje("Proveedor de insumos"
-                    + " registrado: " + nombre + " " + apellido);
+            
         }
+
     }
+    
 }

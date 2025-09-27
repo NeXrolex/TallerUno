@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
@@ -40,15 +41,23 @@ public class PantallaPrincipal extends JFrame {
         setSize(500, 350);
         setLocationRelativeTo(null);
 
-        // Panel principal
+        // Creacion Panel principal
         JPanel panelPrincipal = new JPanel(new BorderLayout());
-        panelPrincipal.setBackground(new Color(0, 102, 204)); // Azul principal
-
-        // Encabezado
-        JLabel lblTitulo = new JLabel("Bienvenido a RolaPet", SwingConstants.CENTER);
+        // Creacion subPanel encabezado
+        JPanel panelEncabezado = new JPanel(new BorderLayout());
+        panelEncabezado.setBackground(new Color(0, 102, 204)); // Azul principal
+        // integracion Logo de la Empresa
+        ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/co/udistrital/avanzada/tallerUno/resources/RolaPetLogo.png"));
+        Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        JLabel logo = new JLabel(new ImageIcon(imagenEscalada));        
+        panelEncabezado.add(logo, BorderLayout.WEST);
+        // integracion nombre de la empresa
+        JLabel lblTitulo = new JLabel("Bienvenido a RolaPet");
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 22));
         lblTitulo.setForeground(Color.WHITE);
-        panelPrincipal.add(lblTitulo, BorderLayout.NORTH);
+        panelEncabezado.add(lblTitulo, BorderLayout.CENTER);
+        // Add encabezado a panel principal
+        panelPrincipal.add(panelEncabezado, BorderLayout.NORTH);
 
         // Panel de botones
         JPanel panelBotones = new JPanel(new GridLayout(4, 1, 10, 10));

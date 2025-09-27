@@ -1,5 +1,4 @@
 package co.udistrital.avanzada.tallerUno.controlador;
-
 /**
  * ControlGeneral es el orquestador principal del sistema.
  *
@@ -12,7 +11,8 @@ public class ControlGeneral {
     private ControlVehiculo controlVehiculo;
     private ControlPersona controlPersona;
     private ControlVista controlVista;
-
+    private ControlProveedor controlProveedor;
+    
     /**
      * Constructor encarcado de instanciar los objetos e inyectarse a las otras
      * clases
@@ -23,12 +23,30 @@ public class ControlGeneral {
         // pueda llamar de regreso a ControlGeneral si lo necesita
         this.controlPersona = new ControlPersona(this);
         this.controlVehiculo = new ControlVehiculo(this);
-        this.controlVista = new ControlVista(this);
-
+        this.controlVista = new ControlVista(this, this.controlProveedor);
+        this.controlProveedor = new ControlProveedor();
+        inicializarProveedores();
         // Arranca la vista principal
         this.controlVista.menu();
     }
+    
+    private void inicializarProveedores() {
+       controlProveedor.crearProveedor("servicios", "Bike & Scooters Serv. tecnico", "Jose", "785", "3013334444", "jose@servicios.com", "password");
+       controlProveedor.crearProveedor("insumos", "Protecciones y Accesorios", "Laura", "598", "3001112222", "laura@insumos.com", "password");
+    }
+        
+    public void crearProveedorServicios(String nombre, String apellido,
+                                        String cedula, String num, String correo, String password) {
+        controlProveedor.crearProveedor("servicios", nombre, apellido, cedula, num, correo, password);
+    }
 
+    public void crearProveedorInsumos(String nombre, String apellido,
+                                      String cedula, String num, String correo, String password) {
+        controlProveedor.crearProveedor("insumos", nombre, apellido, cedula, num, correo, password);
+    }
+    public ControlProveedor getControlProveedor() {
+        return controlProveedor;
+    }
     /**
      * Crea un usuario llamando a controlPersona
      *
@@ -67,37 +85,6 @@ public class ControlGeneral {
         return controlPersona.agregarAmigo(cedulaU, cedulaAmigo);
     }
 
-    /**
-     * Se encarga de crear un provedor de servicios
-     *
-     * @param nombre nombre del provedor
-     * @param apellido apellido del provedor
-     * @param cedula cedula del provedor
-     * @param num numero del provedor
-     * @param correo correo del provedor
-     * @param password constrasena del provedor
-     */
-    public void crearProveedorServicios(String nombre, String apellido,
-            String cedula, String num, String correo, String password) {
-        controlPersona.crearProveedorServicios(nombre, apellido, cedula,
-                num, correo, password);
-    }
-
-    /**
-     * Se encarga de crear un provedor de insumos
-     *
-     * @param nombre nombre del provedor
-     * @param apellido apellido del provedor
-     * @param cedula cedula del provedor
-     * @param num numero del provedor
-     * @param correo correo del provedor
-     * @param password constrasena del provedor
-     */
-    public void crearProveedorInsumos(String nombre, String apellido,
-            String cedula, String num, String correo, String password) {
-        controlPersona.crearProveedorInsumos(nombre, apellido, cedula, num,
-                correo, password);
-    }
 
     /**
      * Busca una persona en la lista de personas
