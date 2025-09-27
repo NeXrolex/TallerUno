@@ -198,8 +198,10 @@ public class ControlPersona {
         return "Proveedor no encontrado.";
     }
 
-    public void adicionarEvento(String numeroEvento, String tipoEvento, String descripcionEvento, String fecha) {
-        Evento aux = new Evento(numeroEvento, tipoEvento, descripcionEvento, fecha);
+    public void adicionarEvento(String numeroEvento, String tipoEvento,
+            String descripcionEvento, String fecha) {
+        Evento aux = new Evento(numeroEvento, tipoEvento, descripcionEvento,
+                fecha);
         eventos.add(aux);
     }
 
