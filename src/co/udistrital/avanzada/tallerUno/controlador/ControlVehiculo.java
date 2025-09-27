@@ -38,16 +38,19 @@ public class ControlVehiculo {
      * @param numChasis identificcador del chasis
      * @param referencia tipo segun la marca
      */
-    public void crearVehiculo(String tipo, String id, String potencia, String marca, String numChasis, String referencia) {
+    public void crearVehiculo(String tipo, String id, String potencia,
+            String marca, String numChasis, String referencia) {
         //instanciamos una variable auxiliar para agragar vehiculos
         Vehiculo aux;
-        // realizamos una comparacion para diferenciar entre agregar un scooter o moto electrica
+        // realizamos una comparacion para diferenciar entre agregar un
+        //scooter o moto electrica
         if (SCOOTER.equalsIgnoreCase(tipo)) {
             aux = new Scooter(tipo, id, potencia, marca, numChasis, referencia);
             // agregamosel vehiculo al arraylist al arraylist
             this.vehiculosRegistrados.add(aux);
         } else if (MOTOELECTICA.equalsIgnoreCase(tipo)) {
-            aux = new MotoElectrica(tipo, id, potencia, marca, numChasis, referencia);
+            aux = new MotoElectrica(tipo, id, potencia, marca, numChasis,
+                    referencia);
             // agregamosel vehiculo al arraylist al arraylist
             this.vehiculosRegistrados.add(aux);
         }
@@ -60,15 +63,19 @@ public class ControlVehiculo {
      * @param scooter
      */
     public void editarVehiculo(Vehiculo vehiculo) {
-        // definimos un contador para establecer la "posicion del objeto a modificar"
+        // definimos un contador para establecer la "posicion del 
+        //objeto a modificar"
         int i = 0;
         //definimos un ciclo 
         for (Vehiculo vehiculosRegistrado : vehiculosRegistrados) {
             // encontramos el objeto y cambiamos los datos
-            if (vehiculosRegistrado.getId().equalsIgnoreCase(vehiculo.getId())) {
+            if (vehiculosRegistrado.getId().equalsIgnoreCase(vehiculo.
+                    getId())) {
                 vehiculosRegistrados.get(i).setMarca(vehiculo.getMarca());
-                vehiculosRegistrados.get(i).setPotencia(vehiculo.getPotencia());
-                vehiculosRegistrados.get(i).setReferencia(vehiculo.getReferencia());
+                vehiculosRegistrados.get(i).setPotencia(vehiculo
+                        .getPotencia());
+                vehiculosRegistrados.get(i).setReferencia(vehiculo
+                        .getReferencia());
             }
             //contador para saber la posicion del objeto a cambiar
             i++;

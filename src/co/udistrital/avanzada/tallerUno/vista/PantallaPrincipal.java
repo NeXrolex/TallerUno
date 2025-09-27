@@ -14,7 +14,7 @@ import javax.swing.border.TitledBorder;
  * Es la encargada de mostrar la interfaz y proveer métodos para que el
  * controlador (ControlVista) interactúe con el usuario.
  *
- * @author Alex
+ * @author Alex,Santiago
  * @version 1.0
  */
 public class PantallaPrincipal extends JFrame {
@@ -35,43 +35,51 @@ public class PantallaPrincipal extends JFrame {
     @Override
     protected void frameInit() {
         super.frameInit();
-
+        // Configuraciones básicas de la ventana
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(500, 350);
-        setLocationRelativeTo(null);
+        setSize(500, 350);// Tamaño fijo de la ventana
+        setLocationRelativeTo(null);// Centrar la ventana al abrir
 
         // Creacion Panel principal
         JPanel panelPrincipal = new JPanel(new BorderLayout());
+        
         // Creacion subPanel encabezado
         JPanel panelEncabezado = new JPanel(new BorderLayout());
         panelEncabezado.setBackground(new Color(0, 102, 204)); // Azul principal
+        
         // integracion Logo de la Empresa
         ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/co/udistrital/avanzada/tallerUno/resources/RolaPetLogo.png"));
-        Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        Image imagenEscalada = iconoOriginal.getImage()
+                .getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         JLabel logo = new JLabel(new ImageIcon(imagenEscalada));
         panelEncabezado.add(logo, BorderLayout.WEST);
+        
         // integracion nombre de la empresa
         JLabel lblTitulo = new JLabel("Bienvenido a RolaPet");
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 22));
         lblTitulo.setForeground(Color.WHITE);
         panelEncabezado.add(lblTitulo, BorderLayout.CENTER);
+        
         // Add encabezado a panel principal
         panelPrincipal.add(panelEncabezado, BorderLayout.NORTH);
 
         // Panel de botones
         JPanel panelBotones = new JPanel(new GridLayout(4, 1, 10, 10));
         panelBotones.setBackground(Color.WHITE);
-
+        
+        //botones del menu principal
         btnUsuario = new JButton("Ingresar como Usuario");
         btnAdmin = new JButton("Ingresar como Administrador");
         btnProveedor = new JButton("Ingresar como Proveedor");
         btnSalir = new JButton("Salir");
-
+        
+        //Anadimos los botones al panel
         panelBotones.add(btnUsuario);
         panelBotones.add(btnAdmin);
         panelBotones.add(btnProveedor);
         panelBotones.add(btnSalir);
-
+        
+        // Agregar panel de botones al centro del panel principal
         panelPrincipal.add(panelBotones, BorderLayout.CENTER);
 
         // Área de mensajes
@@ -80,7 +88,8 @@ public class PantallaPrincipal extends JFrame {
         txtOutput.setBackground(Color.WHITE);
         txtOutput.setBorder(new TitledBorder("Mensajes del sistema"));
         panelPrincipal.add(new JScrollPane(txtOutput), BorderLayout.SOUTH);
-
+        
+        // Agregar panel principal a la ventana JFrame
         add(panelPrincipal);
     }
 
