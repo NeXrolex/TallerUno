@@ -26,6 +26,7 @@ public class ControlPersona {
     public ControlPersona(ControlGeneral controlGeneral) {
         this.controlGeneral = controlGeneral;
         this.personas = new ArrayList<>();
+        this.eventos = new ArrayList<>();
         crearAdministradorPorDefecto();
     }
 
@@ -55,8 +56,6 @@ public class ControlPersona {
                 correo, password);
         personas.add(usuario);
     }
-
-    
 
     /**
      * Busca una persona registrada en el sistema por su cedula
@@ -198,12 +197,14 @@ public class ControlPersona {
         }
         return "Proveedor no encontrado.";
     }
-    public void adicionarEvento (String numeroEvento ,String tipoEvento , String descripcionEvento, String fecha){
-    Evento aux = new Evento(numeroEvento,tipoEvento,descripcionEvento,fecha);
-    eventos.add(aux);
+
+    public void adicionarEvento(String numeroEvento, String tipoEvento, String descripcionEvento, String fecha) {
+        Evento aux = new Evento(numeroEvento, tipoEvento, descripcionEvento, fecha);
+        eventos.add(aux);
     }
-    public void mostrarEvento(){
-    
+
+    public void mostrarEvento() {
+
     }
 
     /**

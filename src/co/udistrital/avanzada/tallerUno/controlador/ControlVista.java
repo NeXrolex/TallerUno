@@ -172,12 +172,12 @@ public class ControlVista implements ActionListener {
                 case 3 -> { // editar vehiculo
                     String id = pantallaPrincipal.pedirDato("Ingrese el id del vehiculo a modificar:");
                     Vehiculo vehiculo = controlGeneral.buscarVehiculo(id);
-                    if(vehiculo != null){
-                        pantallaPrincipal.mostrarMensaje("editar campos "+
-                                "\n Id " +vehiculo.getId() + 
-                                "\n " +vehiculo.getMarca()+ 
-                                "\n" +vehiculo.getNumChasis()+ 
-                                "\n" +vehiculo.getPotencia());
+                    if (vehiculo != null) {
+                        pantallaPrincipal.mostrarMensaje("editar campos "
+                                + "\n Id " + vehiculo.getId()
+                                + "\n " + vehiculo.getMarca()
+                                + "\n" + vehiculo.getNumChasis()
+                                + "\n" + vehiculo.getPotencia());
                         String marca = pantallaPrincipal.pedirDato("marca a cambiar:");
                         String numChasis = pantallaPrincipal.pedirDato("Nuevo numero de chasis:");
                         String potencia = pantallaPrincipal.pedirDato("Nueva potencia:");
@@ -187,10 +187,10 @@ public class ControlVista implements ActionListener {
                         vehiculo.setPotencia(potencia);
                         vehiculo.setReferencia(referencia);
                         controlGeneral.editarVehiculo(vehiculo);
-                    }else{
+                    } else {
                         pantallaPrincipal.mostrarMensaje("No existe el id ingresado");
                     }
-                    
+
                 }
                 case 4 -> { // Cerrar sesión
                     activo = false;
