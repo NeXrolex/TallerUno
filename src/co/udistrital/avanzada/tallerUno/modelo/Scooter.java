@@ -12,9 +12,20 @@ package co.udistrital.avanzada.tallerUno.modelo;
  * 
  */
 public class Scooter extends Vehiculo {
-
+    
+    /**
+     * Constructor que inicializa un scooter con sus características básicas.
+     * 
+     * @param tipo Tipo de vehículo (usualmente "scooter" o similar).
+     * @param id Identificador único del scooter.
+     * @param potencia Potencia del scooter.
+     * @param marca Marca del scooter.
+     * @param numChasis Número de chasis del scooter.
+     * @param referencia Modelo o referencia del scooter.
+     */
     public Scooter(String tipo, String id,String potencia, String marca, String numChasis,
             String referencia) {
+        // Inicialización de atributos heredados de Vehiculo
         super.tipo=tipo;
         super.id=id;
         super.potencia = potencia;
