@@ -1,5 +1,6 @@
 package co.udistrital.avanzada.tallerUno.controlador;
 
+import co.udistrital.avanzada.tallerUno.modelo.Evento;
 import co.udistrital.avanzada.tallerUno.modelo.Vehiculo;
 import co.udistrital.avanzada.tallerUno.vista.PantallaPrincipal;
 import java.awt.event.ActionEvent;
@@ -122,7 +123,7 @@ public class ControlVista implements ActionListener {
 
     private void menuUsuario(String cedulaUsuario) {
         String[] opciones = {"Añadir Vehículo", "Borrar Vehículo",
-            "Agregar Amigo", "editar vehiculo", "Cerrar Sesión"};
+            "Agregar Amigo", "Editar vehiculo", "Mostrar eventos", "Cerrar Sesión"};
         boolean activo = true;
 
         while (activo) {
@@ -139,14 +140,29 @@ public class ControlVista implements ActionListener {
                         String tipo = tipos[tipoIndex];
                         String id = pantallaPrincipal
                                 .pedirDato("ID del vehículo:");
+                        if (id == null) {
+                            break;
+                        }
                         String potencia = pantallaPrincipal
                                 .pedirDato("Potencia:");
+                        if (potencia == null) {
+                            break;
+                        }
                         String marca = pantallaPrincipal
                                 .pedirDato("Marca:");
+                        if (marca == null) {
+                            break;
+                        }
                         String numChasis = pantallaPrincipal.pedirDato("Número "
                                 + "de chasis:");
+                        if (numChasis == null) {
+                            break;
+                        }
                         String referencia = pantallaPrincipal
                                 .pedirDato("Referencia:");
+                        if (referencia == null) {
+                            break;
+                        }
 
                         controlGeneral.crearVehiculo(tipo, id, potencia, marca,
                                 numChasis, referencia);
@@ -170,7 +186,8 @@ public class ControlVista implements ActionListener {
                     pantallaPrincipal.mostrarMensaje(resultado);
                 }
                 case 3 -> { // editar vehiculo
-                    String id = pantallaPrincipal.pedirDato("Ingrese el id del vehiculo a modificar:");
+                    String id = pantallaPrincipal.pedirDato("Ingrese el id del"
+                            + " vehiculo a modificar:");
                     Vehiculo vehiculo = controlGeneral.buscarVehiculo(id);
                     if (vehiculo != null) {
                         pantallaPrincipal.mostrarMensaje("editar campos "
@@ -179,9 +196,21 @@ public class ControlVista implements ActionListener {
                                 + "\n" + vehiculo.getNumChasis()
                                 + "\n" + vehiculo.getPotencia());
                         String marca = pantallaPrincipal.pedirDato("marca a cambiar:");
+                        if (marca == null) {
+                            break;
+                        }
                         String numChasis = pantallaPrincipal.pedirDato("Nuevo numero de chasis:");
+                        if (numChasis == null) {
+                            break;
+                        }
                         String potencia = pantallaPrincipal.pedirDato("Nueva potencia:");
+                        if (potencia == null) {
+                            break;
+                        }
                         String referencia = pantallaPrincipal.pedirDato("Nueva referencia");
+                        if (referencia == null) {
+                            break;
+                        }
                         vehiculo.setMarca(marca);
                         vehiculo.setNumChasis(numChasis);
                         vehiculo.setPotencia(potencia);
@@ -192,7 +221,23 @@ public class ControlVista implements ActionListener {
                     }
 
                 }
-                case 4 -> { // Cerrar sesión
+                case 4 -> {
+                    //mostrar eventos
+                    String numeroEvento = pantallaPrincipal.pedirDato("Ingrese "
+                            + "el numero del evento");
+                    Evento evento = controlGeneral.buscarEvento(numeroEvento);
+                    if(evento !=null){
+                        pantallaPrincipal.mostrarMensaje("---Evento---"
+                            + "\n Numero Evento: " + evento.getNumeroEvento()
+                            + "\n Fecha: " + evento.getFecha()
+                            + "\n" + evento.getTipoEvento());
+                    }else{
+                        pantallaPrincipal.mostrarMensaje("No existe el numero de evento ingresado");
+
+                    }
+                    
+                }
+                case 5 -> { // Cerrar sesión
                     activo = false;
                 }
             }
@@ -206,38 +251,63 @@ public class ControlVista implements ActionListener {
         int opcion = pantallaPrincipal.mostrarOpciones("Administrador", opciones);
         switch (opcion) {
             case 0:
-                String tipo = pantallaPrincipal.pedirDato("Especifique el tipo proveedor: (insumos o servicios)");
+                String tipo = pantallaPrincipal.pedirDato("Especifique "
+                        + "el tipo proveedor: (insumos o servicios)");
+                if (tipo == null) {
+                    break;
+                }
                 String nombre = pantallaPrincipal.pedirDato("Nombre proveedor:");
+                if (nombre == null) {
+                    break;
+                }
                 String apellido = pantallaPrincipal.pedirDato("Apellido "
                         + "proveedor:");
+                if (apellido == null) {
+                    break;
+                }
                 String cedula = pantallaPrincipal.pedirDato("Cédula:");
+                if (cedula == null) {
+                    break;
+                }
                 String numero = pantallaPrincipal.pedirDato("Número:");
+                if (numero == null) {
+                    break;
+                }
                 String correo = pantallaPrincipal.pedirDato("Correo:");
+                if (correo == null) {
+                    break;
+                }
                 String password = pantallaPrincipal.pedirDato("Contraseña:");
-
+                if (password == null) {
+                    break;
+                }
                 controlProveedor.crearProveedor(tipo, nombre, apellido,
                         cedula, numero, correo, password);
                 pantallaPrincipal.mostrarMensaje("Proveedor registrado: "
                         + nombre + " " + apellido);
                 break;
             case 1:
-                String numeroEvento = pantallaPrincipal.pedirDato("Asigne un numero para su evento");
+                String numeroEvento = pantallaPrincipal.pedirDato("Asigne "
+                        + "un numero para su evento");
                 if (numeroEvento == null) {
                     break;
                 }
-                String tipoEvento = pantallaPrincipal.pedirDato("Especifique el tipo de evento a agregar");
+                String tipoEvento = pantallaPrincipal.pedirDato("Especifique "
+                        + "el tipo de evento a agregar");
                 if (tipoEvento == null) {
                     break;
                 }
-                String descripcionEvento = pantallaPrincipal.pedirDato("Describa el evento a agregar");
+                String descripcionEvento = pantallaPrincipal.pedirDato("Describa"
+                        + " el evento a agregar");
                 if (descripcionEvento == null) {
                     break;
                 }
                 String fecha = pantallaPrincipal.pedirDato("fecha");
-                if (descripcionEvento == null) {
+                if (fecha == null) {
                     break;
                 }
-                controlGeneral.adicionarVehiculo(numeroEvento, tipoEvento, descripcionEvento, tipoEvento);
+                controlGeneral.adicionarVehiculo(numeroEvento, tipoEvento,
+                        descripcionEvento, fecha);
                 pantallaPrincipal.mostrarMensaje("Evento registrado");
         }
 

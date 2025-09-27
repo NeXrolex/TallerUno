@@ -14,10 +14,11 @@ import java.util.List;
 // */
 
 public class ControlProveedor {
-    private List<Provedor> proveedores;
-    public ControlProveedor(){
+    private ArrayList<Provedor> proveedores;
+    private ControlGeneral controlGeneral;
+    public ControlProveedor(ControlGeneral controlGeneral){
         this.proveedores = new ArrayList<>();
-    
+        this.controlGeneral= controlGeneral;
     }
     public void agregarProveedor(Provedor proveedor) {
         proveedores.add(proveedor);

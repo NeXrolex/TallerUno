@@ -203,8 +203,15 @@ public class ControlPersona {
         eventos.add(aux);
     }
 
-    public void mostrarEvento() {
-
+    public Evento buscarEvento(String numeroEvento) {
+        Evento eventoRetorno =null;
+        for (Evento evento : eventos) {
+            // encontramos el objeto 
+            if (evento.getNumeroEvento().equalsIgnoreCase(numeroEvento)) {
+                eventoRetorno = evento;
+            }
+        }
+        return eventoRetorno;
     }
 
     /**
