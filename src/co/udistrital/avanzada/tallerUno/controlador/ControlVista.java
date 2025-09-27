@@ -1,5 +1,6 @@
 package co.udistrital.avanzada.tallerUno.controlador;
 
+import co.udistrital.avanzada.tallerUno.modelo.Vehiculo;
 import co.udistrital.avanzada.tallerUno.vista.PantallaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,8 +18,8 @@ public class ControlVista implements ActionListener {
     private final ControlGeneral controlGeneral;
     private final PantallaPrincipal pantallaPrincipal;
 
-    public ControlVista(ControlGeneral controlGeneral,ControlProveedor controlProveedor) {
-        
+    public ControlVista(ControlGeneral controlGeneral, ControlProveedor controlProveedor) {
+
         this.controlGeneral = controlGeneral;
         this.controlProveedor = controlProveedor;
         this.pantallaPrincipal = new PantallaPrincipal("RolaPet");
@@ -121,7 +122,7 @@ public class ControlVista implements ActionListener {
 
     private void menuUsuario(String cedulaUsuario) {
         String[] opciones = {"Añadir Vehículo", "Borrar Vehículo",
-            "Agregar Amigo", "Cerrar Sesión"};
+            "Agregar Amigo", "editar vehiculo", "Cerrar Sesión"};
         boolean activo = true;
 
         while (activo) {
@@ -168,7 +169,30 @@ public class ControlVista implements ActionListener {
                             .agregarAmigo(cedulaUsuario, cedulaAmigo);
                     pantallaPrincipal.mostrarMensaje(resultado);
                 }
-                case 3 -> { // Cerrar sesión
+                case 3 -> { // editar vehiculo
+                    String id = pantallaPrincipal.pedirDato("Ingrese el id del vehiculo a modificar:");
+                    Vehiculo vehiculo = controlGeneral.buscarVehiculo(id);
+                    if(vehiculo != null){
+                        pantallaPrincipal.mostrarMensaje("editar campos "+
+                                "\n Id " +vehiculo.getId() + 
+                                "\n " +vehiculo.getMarca()+ 
+                                "\n" +vehiculo.getNumChasis()+ 
+                                "\n" +vehiculo.getPotencia());
+                        String marca = pantallaPrincipal.pedirDato("marca a cambiar:");
+                        String numChasis = pantallaPrincipal.pedirDato("Nuevo numero de chasis:");
+                        String potencia = pantallaPrincipal.pedirDato("Nueva potencia:");
+                        String referencia = pantallaPrincipal.pedirDato("Nueva referencia");
+                        vehiculo.setMarca(marca);
+                        vehiculo.setNumChasis(numChasis);
+                        vehiculo.setPotencia(potencia);
+                        vehiculo.setReferencia(referencia);
+                        controlGeneral.editarVehiculo(vehiculo);
+                    }else{
+                        pantallaPrincipal.mostrarMensaje("No existe el id ingresado");
+                    }
+                    
+                }
+                case 4 -> { // Cerrar sesión
                     activo = false;
                 }
             }
@@ -176,28 +200,47 @@ public class ControlVista implements ActionListener {
     }
 
     private void menuAdmin() {
-        
-        String[] opciones = {"Crear Proveedor","Publicar evento", "Salir"};
-        
+
+        String[] opciones = {"Crear Proveedor", "Publicar evento", "Salir"};
+
         int opcion = pantallaPrincipal.mostrarOpciones("Administrador", opciones);
-        if (opcion == 0) {
-            String tipo = pantallaPrincipal.pedirDato("Especifique el tipo proveedor: (insumos o servicios)");
-            String nombre = pantallaPrincipal.pedirDato("Nombre proveedor:");
-            String apellido = pantallaPrincipal.pedirDato("Apellido "
-                    + "proveedor:");
-            String cedula = pantallaPrincipal.pedirDato("Cédula:");
-            String numero = pantallaPrincipal.pedirDato("Número:");
-            String correo = pantallaPrincipal.pedirDato("Correo:");
-            String password = pantallaPrincipal.pedirDato("Contraseña:");
-            
-            controlProveedor.crearProveedor(tipo, nombre, apellido,
-                    cedula, numero, correo, password);
-            pantallaPrincipal.mostrarMensaje("Proveedor registrado: "
-                    + nombre + " " + apellido);
-        } else if (opcion == 1) {
-            
+        switch (opcion) {
+            case 0:
+                String tipo = pantallaPrincipal.pedirDato("Especifique el tipo proveedor: (insumos o servicios)");
+                String nombre = pantallaPrincipal.pedirDato("Nombre proveedor:");
+                String apellido = pantallaPrincipal.pedirDato("Apellido "
+                        + "proveedor:");
+                String cedula = pantallaPrincipal.pedirDato("Cédula:");
+                String numero = pantallaPrincipal.pedirDato("Número:");
+                String correo = pantallaPrincipal.pedirDato("Correo:");
+                String password = pantallaPrincipal.pedirDato("Contraseña:");
+
+                controlProveedor.crearProveedor(tipo, nombre, apellido,
+                        cedula, numero, correo, password);
+                pantallaPrincipal.mostrarMensaje("Proveedor registrado: "
+                        + nombre + " " + apellido);
+                break;
+            case 1:
+                String numeroEvento = pantallaPrincipal.pedirDato("Asigne un numero para su evento");
+                if (numeroEvento == null) {
+                    break;
+                }
+                String tipoEvento = pantallaPrincipal.pedirDato("Especifique el tipo de evento a agregar");
+                if (tipoEvento == null) {
+                    break;
+                }
+                String descripcionEvento = pantallaPrincipal.pedirDato("Describa el evento a agregar");
+                if (descripcionEvento == null) {
+                    break;
+                }
+                String fecha = pantallaPrincipal.pedirDato("fecha");
+                if (descripcionEvento == null) {
+                    break;
+                }
+                controlGeneral.adicionarVehiculo(numeroEvento, tipoEvento, descripcionEvento, tipoEvento);
+                pantallaPrincipal.mostrarMensaje("Evento registrado");
         }
 
     }
-    
+
 }

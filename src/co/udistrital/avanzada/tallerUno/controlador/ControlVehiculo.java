@@ -59,16 +59,16 @@ public class ControlVehiculo {
      * @param id
      * @param scooter
      */
-    public void editarVehiculo(String id, Scooter scooter) {
+    public void editarVehiculo(Vehiculo vehiculo) {
         // definimos un contador para establecer la "posicion del objeto a modificar"
         int i = 0;
         //definimos un ciclo 
         for (Vehiculo vehiculosRegistrado : vehiculosRegistrados) {
             // encontramos el objeto y cambiamos los datos
-            if (vehiculosRegistrado.getId().equalsIgnoreCase(id)) {
-                vehiculosRegistrados.get(i).setMarca(scooter.getMarca());
-                vehiculosRegistrados.get(i).setPotencia(scooter.getPotencia());
-                vehiculosRegistrados.get(i).setReferencia(scooter.getReferencia());
+            if (vehiculosRegistrado.getId().equalsIgnoreCase(vehiculo.getId())) {
+                vehiculosRegistrados.get(i).setMarca(vehiculo.getMarca());
+                vehiculosRegistrados.get(i).setPotencia(vehiculo.getPotencia());
+                vehiculosRegistrados.get(i).setReferencia(vehiculo.getReferencia());
             }
             //contador para saber la posicion del objeto a cambiar
             i++;
@@ -103,7 +103,7 @@ public class ControlVehiculo {
      * @param id
      * @return vehiculo
      */
-    public Vehiculo buscarScooter(String id) {
+    public Vehiculo buscarVehiculo(String id) {
         Vehiculo vehiculo = null;
         //definimos un ciclo para encontar el vehiculo a registrar
         for (Vehiculo vehiculosRegistrado : vehiculosRegistrados) {

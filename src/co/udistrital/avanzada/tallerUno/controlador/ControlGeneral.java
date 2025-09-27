@@ -5,6 +5,7 @@ package co.udistrital.avanzada.tallerUno.controlador;
  * @autor Alex
  * @version 1.0
  */
+import co.udistrital.avanzada.tallerUno.modelo.*; 
 public class ControlGeneral {
 
     //atributos para manejar las otras clases
@@ -122,16 +123,18 @@ public class ControlGeneral {
     public boolean validarProveedor(String cedula, String password) {
         return controlPersona.validarProveedor(cedula, password);
     }
+    public void adicionarVehiculo(String numeroEvento ,String tipoEvento, String descripcionEvento, String fecha){
+    controlPersona.adicionarEvento(numeroEvento, tipoEvento, descripcionEvento, fecha);
+    }
 
     /**
      * Se encarga de editar un vehiculo
      *
-     * @param id identificador del vehiculo
+     * @param vehiculo  vehiculo
      * @param scooter scooter electrico
      */
-    public void editarVehiculo(String id, co.udistrital.avanzada.tallerUno
-            .modelo.Scooter scooter) {
-        controlVehiculo.editarVehiculo(id, scooter);
+    public void editarVehiculo(Vehiculo vehiculo) {
+        controlVehiculo.editarVehiculo(vehiculo);
     }
     
     public void eliminarVehiculo(String id) {
@@ -140,7 +143,7 @@ public class ControlGeneral {
 
     public co.udistrital.avanzada.tallerUno.modelo.Vehiculo
             buscarVehiculo(String id) {
-        return controlVehiculo.buscarScooter(id);
+        return controlVehiculo.buscarVehiculo(id);
     }
 
 }
