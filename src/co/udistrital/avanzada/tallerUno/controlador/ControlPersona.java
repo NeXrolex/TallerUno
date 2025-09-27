@@ -14,6 +14,7 @@ public class ControlPersona {
 
     private ControlGeneral controlGeneral;
     private ArrayList<Persona> personas; //Lista de personas registradas
+    private ArrayList<Evento> eventos;
     private Persona administrador; // único administrador del sistema
 
     /**
@@ -196,6 +197,13 @@ public class ControlPersona {
             }
         }
         return "Proveedor no encontrado.";
+    }
+    public void adicionarEvento (String numeroEvento ,String tipoEvento , String descripcionEvento, String fecha){
+    Evento aux = new Evento(numeroEvento,tipoEvento,descripcionEvento,fecha);
+    eventos.add(aux);
+    }
+    public void mostrarEvento(){
+    
     }
 
     /**
