@@ -10,11 +10,11 @@ package co.udistrital.avanzada.tallerUno.modelo;
  * @author Alex
  * @version 1.0
  */
-public class ProvedorServicio extends Provedor {
+public class ProveedorServicio extends Proveedor {
 
-    public ProvedorServicio(String nombre, String apellido, String cedula,
+    public ProveedorServicio(String tipo, String nombre, String apellido, String cedula,
             String numero, String correo, String password) {
-        super(nombre, apellido, cedula, numero, correo, password);
+        super(tipo, nombre, apellido, cedula, numero, correo, password);
     }
 
 }

@@ -11,7 +11,6 @@ public class ControlGeneral {
     private ControlVehiculo controlVehiculo;
     private ControlPersona controlPersona;
     private ControlVista controlVista;
-    private ControlProveedor controlProveedor;
     
     /**
      * Constructor encarcado de instanciar los objetos e inyectarse a las otras
@@ -23,30 +22,15 @@ public class ControlGeneral {
         // pueda llamar de regreso a ControlGeneral si lo necesita
         this.controlPersona = new ControlPersona(this);
         this.controlVehiculo = new ControlVehiculo(this);
-        this.controlVista = new ControlVista(this, this.controlProveedor);
-        this.controlProveedor = new ControlProveedor();
-        inicializarProveedores();
+        this.controlVista = new ControlVista(this);
+        
         // Arranca la vista principal
         this.controlVista.menu();
     }
+    public ControlPersona getControlPersona() {
+        return controlPersona;
+    }
     
-    private void inicializarProveedores() {
-       controlProveedor.crearProveedor("servicios", "Bike & Scooters Serv. tecnico", "Jose", "785", "3013334444", "jose@servicios.com", "password");
-       controlProveedor.crearProveedor("insumos", "Protecciones y Accesorios", "Laura", "598", "3001112222", "laura@insumos.com", "password");
-    }
-        
-    public void crearProveedorServicios(String nombre, String apellido,
-                                        String cedula, String num, String correo, String password) {
-        controlProveedor.crearProveedor("servicios", nombre, apellido, cedula, num, correo, password);
-    }
-
-    public void crearProveedorInsumos(String nombre, String apellido,
-                                      String cedula, String num, String correo, String password) {
-        controlProveedor.crearProveedor("insumos", nombre, apellido, cedula, num, correo, password);
-    }
-    public ControlProveedor getControlProveedor() {
-        return controlProveedor;
-    }
     /**
      * Crea un usuario llamando a controlPersona
      *

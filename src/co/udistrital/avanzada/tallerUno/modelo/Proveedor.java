@@ -15,25 +15,31 @@ import java.util.List;
  *
  * Se extiende a ProvedorServicios e ProvedorInsumos
  */
-public class Provedor extends Persona {
+public class Proveedor extends Persona {
 
-    protected String password;
+    private String tipo;
     protected List<String> nombreProductos;
     protected List<Double> preciosProductos;
-    protected String logo;
     
-    public Provedor(String nombre, String apellido, String cedula,
+
+    
+    public Proveedor(String tipo, String nombre, String apellido, String cedula,
             String numero, String correo, String password) {
 
+        this.tipo = tipo;
         super.nombre = nombre;
         super.apellido = apellido;
         super.cedula = cedula;
         super.numero = numero;
         super.correo = correo;
+        this.password = password;
         this.nombreProductos = new ArrayList<>();
         this.preciosProductos = new ArrayList<>();
-        this.password = password;
+        
 
+    }
+    public String getTipo() {
+        return tipo;
     }
 
     public List<String> getNombreProductos() {
@@ -51,15 +57,6 @@ public class Provedor extends Persona {
     public void setPreciosProductos(List<Double> preciosProductos) {
         this.preciosProductos = preciosProductos;
     }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 
     
 }

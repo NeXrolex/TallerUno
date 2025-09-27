@@ -2,18 +2,20 @@ package co.udistrital.avanzada.tallerUno.controlador;
 
 import co.udistrital.avanzada.tallerUno.modelo.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ControlPersona administra todas las personas del sistema: Usuarios,
  * Proveedores y el Administrador único.
  *
  * @autor Santiago, Alex , Jeison
- * @version 1.0
+ * @version 4.0
  */
 public class ControlPersona {
-
-    private ControlGeneral controlGeneral;
+    
     private ArrayList<Persona> personas; //Lista de personas registradas
+    private List<Proveedor> proveedores;
+    
     private Persona administrador; // único administrador del sistema
 
     /**
@@ -23,9 +25,10 @@ public class ControlPersona {
      * acoplamiento
      */
     public ControlPersona(ControlGeneral controlGeneral) {
-        this.controlGeneral = controlGeneral;
         this.personas = new ArrayList<>();
+        this.proveedores = new ArrayList<>();
         crearAdministradorPorDefecto();
+        inicializarProveedoresDefecto(); 
     }
 
     /**
@@ -36,6 +39,38 @@ public class ControlPersona {
         administrador = new Administrador("Admin", "Sistema", "0000", "000000",
                 "admin@rolapet.com");
         personas.add(administrador);
+    }
+    private void inicializarProveedoresDefecto() {
+       crearProveedor("servicios", "Bike & Scooters Serv. tecnico", "Jose", "785", "3013334444", "jose@servicios.com", "password");
+       crearProveedor("insumos", "Protecciones y Accesorios", "Laura", "598", "3001112222", "laura@insumos.com", "password");
+    }
+    
+    
+    /**
+     * Crea un provedor
+     *
+     * @param tipo provedor de insumos o servicios
+     * @param nombre nombre del provedor
+     * @param apellido apellido del provedor
+     * @param cedula documento del provedor
+     * @param numero numero de contacto
+     * @param correo correo de contacto
+     * @param password contrasena del provedor
+     * @return 
+     */
+    
+    public Proveedor crearProveedor(String tipo, String nombre, String apellido, 
+                                    String cedula, String numero, String correo,
+                                    String password) {
+        Proveedor proveedor = new Proveedor(tipo, nombre, apellido, cedula,
+                numero, correo, password);
+        proveedores.add(proveedor);
+        return proveedor;
+    }
+    
+
+    public List<Proveedor> getProveedores() {
+        return proveedores;
     }
 
     /**
@@ -50,7 +85,7 @@ public class ControlPersona {
      */
     public void crearUsuario(String nombre, String apellido, String cedula,
             String numero, String correo, String password) {
-        Persona usuario = new Usuario(nombre, apellido, cedula, numero,
+        Usuario usuario = new Usuario(nombre, apellido, cedula, numero,
                 correo, password);
         personas.add(usuario);
     }
@@ -104,7 +139,7 @@ public class ControlPersona {
      */
     public boolean validarProveedor(String cedula, String password) {
         for (Persona p : personas) {
-            if (p instanceof Provedor prov) {
+            if (p instanceof Proveedor prov) {
                 if (prov.getCedula().equalsIgnoreCase(cedula)
                         && prov.getPassword().equals(password)) {
                     return true;
@@ -162,7 +197,7 @@ public class ControlPersona {
     public String agregarProductoAProveedor(String cedula, String producto,
             double precio) {
         for (Persona p : personas) {
-            if (p instanceof Provedor prov) {
+            if (p instanceof Proveedor prov) {
                 if (prov.getCedula().equalsIgnoreCase(cedula)) {
                     prov.getNombreProductos().add(producto);
                     prov.getPreciosProductos().add(precio);
@@ -182,7 +217,7 @@ public class ControlPersona {
      */
     public String listarProductosDeProveedor(String cedula) {
         for (Persona p : personas) {
-            if (p instanceof Provedor prov) {
+            if (p instanceof Proveedor prov) {
                 if (prov.getCedula().equalsIgnoreCase(cedula)) {
                     StringBuilder sb = new StringBuilder("Productos de "
                             + prov.getNombre() + ":\n");
@@ -214,6 +249,12 @@ public class ControlPersona {
      */
     public Persona getAdministrador() {
         return administrador;
+    }
+
+    private static class personas {
+
+        public personas() {
+        }
     }
 
 }

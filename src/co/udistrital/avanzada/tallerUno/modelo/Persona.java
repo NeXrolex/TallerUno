@@ -19,6 +19,8 @@ public class Persona {
     protected String cedula;
     protected String numero;
     protected String correo;
+    protected String password;
+    
     
     public String getNombre() {
         return nombre;
@@ -59,5 +61,14 @@ public class Persona {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
 
 }
