@@ -27,7 +27,7 @@ public class ControlGeneral {
         this.controlPersona = new ControlPersona(this);
         this.controlVehiculo = new ControlVehiculo(this);
         this.controlVista = new ControlVista(this, this.controlProveedor);
-        this.controlProveedor = new ControlProveedor();
+        this.controlProveedor = new ControlProveedor(this);
         inicializarProveedores();
         // Arranca la vista principal
         this.controlVista.menu();
@@ -155,6 +155,11 @@ public class ControlGeneral {
     public co.udistrital.avanzada.tallerUno.modelo.Vehiculo
             buscarVehiculo(String id) {
         return controlVehiculo.buscarVehiculo(id);
+    }
+
+    public co.udistrital.avanzada.tallerUno.modelo.Evento
+            buscarEvento(String numeroEvento) {
+        return controlPersona.buscarEvento(numeroEvento);
     }
 
 }
