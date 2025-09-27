@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
  * ControlVista escucha eventos de PantallaPrincipal y coordina la interacción
  * entre la vista y ControlGeneral.
  *
- * @author Alex, Jeison
+ * @author Alex, Jeison , Santiago
  * @version 1.0
  */
 public class ControlVista implements ActionListener {
