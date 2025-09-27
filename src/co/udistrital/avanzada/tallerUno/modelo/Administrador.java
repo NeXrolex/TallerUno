@@ -12,7 +12,16 @@ package co.udistrital.avanzada.tallerUno.modelo;
  *
  */
 public class Administrador extends Persona {
-
+    
+    /**
+     * Constructor que asigna los atributos del administrador 
+     * 
+     * @param nombre Nombre del provedor
+     * @param apellido Apellido del provedor
+     * @param cedula Cedula del provedor
+     * @param numero Numero del provedor
+     * @param correo Correo del provedor
+     */
     public Administrador(String nombre, String apellido, String cedula,
             String numero, String correo) {
 

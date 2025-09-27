@@ -21,6 +21,16 @@ public class Provedor extends Persona {
     protected List<String> nombreProductos;
     protected List<Double> preciosProductos;
 
+    /**
+     * Constructor que asigna los valores de un provedor
+     *
+     * @param nombre Nombre del provedor
+     * @param apellido Apellido del provedor
+     * @param cedula Cedula del provedor
+     * @param numero Numero telefonico del provedor
+     * @param correo Correo electronico del proveedor
+     * @param password Contrasena del provedor
+     */
     public Provedor(String nombre, String apellido, String cedula,
             String numero, String correo, String password) {
 
@@ -35,26 +45,56 @@ public class Provedor extends Persona {
 
     }
 
+    /**
+     * Obtiene la lista de nombres de productos ofrecidos por el proveedor.
+     *
+     * @return Lista de nombres de productos.
+     */
     public List<String> getNombreProductos() {
         return nombreProductos;
     }
 
+    /**
+     * Asigna una lista de nombres de productos ofrecidos por el proveedor.
+     *
+     * @param nombreProductos Lista de nombres de productos.
+     */
     public void setNombreProductos(List<String> nombreProductos) {
         this.nombreProductos = nombreProductos;
     }
 
+    /**
+     * Obtiene la lista de precios correspondientes a los productos ofrecidos.
+     *
+     * @return Lista de precios de productos.
+     */
     public List<Double> getPreciosProductos() {
         return preciosProductos;
     }
-
+    
+    /**
+     * Asigna una lista de precios correspondientes a los productos ofrecidos.
+     * 
+     * @param preciosProductos Lista de precios de productos.
+     */
     public void setPreciosProductos(List<Double> preciosProductos) {
         this.preciosProductos = preciosProductos;
     }
-
+    
+    /**
+     * Obtiene la contraseña del proveedor.
+     * 
+     * @return Contraseña del proveedor.
+     */
     public String getPassword() {
         return password;
     }
-
+    
+    /**
+     * Asigna la contraseña para el proveedor.
+     * 
+     * @param password Nueva contraseña a asignar.
+     */
     public void setPassword(String password) {
         this.password = password;
     }
