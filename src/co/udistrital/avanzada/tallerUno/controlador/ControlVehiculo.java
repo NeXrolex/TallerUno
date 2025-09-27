@@ -25,7 +25,7 @@ public class ControlVehiculo {
     private ArrayList<Vehiculo> vehiculosRegistrados;
 
     ControlVehiculo(ControlGeneral controlGeneral) {
-        this.vehiculosRegistrados= new ArrayList<>();
+        this.vehiculosRegistrados = new ArrayList<>();
         this.controlGeneral = controlGeneral;
     }
 
@@ -93,7 +93,7 @@ public class ControlVehiculo {
             //contador para saber la posicion del objeto a eliminar
             i++;
         }
-        if(bandera){
+        if (bandera) {
             vehiculosRegistrados.remove(i);
         }
     }

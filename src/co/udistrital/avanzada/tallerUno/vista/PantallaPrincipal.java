@@ -1,6 +1,5 @@
 package co.udistrital.avanzada.tallerUno.vista;
 
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -11,9 +10,9 @@ import javax.swing.border.TitledBorder;
 
 /**
  * Vista principal del sistema RolaPet.
- * 
- * Es la encargada de mostrar la interfaz y proveer métodos para que
- * el controlador (ControlVista) interactúe con el usuario.
+ *
+ * Es la encargada de mostrar la interfaz y proveer métodos para que el
+ * controlador (ControlVista) interactúe con el usuario.
  *
  * @author Alex
  * @version 1.0
@@ -49,7 +48,7 @@ public class PantallaPrincipal extends JFrame {
         // integracion Logo de la Empresa
         ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/co/udistrital/avanzada/tallerUno/resources/RolaPetLogo.png"));
         Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-        JLabel logo = new JLabel(new ImageIcon(imagenEscalada));        
+        JLabel logo = new JLabel(new ImageIcon(imagenEscalada));
         panelEncabezado.add(logo, BorderLayout.WEST);
         // integracion nombre de la empresa
         JLabel lblTitulo = new JLabel("Bienvenido a RolaPet");
@@ -86,10 +85,9 @@ public class PantallaPrincipal extends JFrame {
     }
 
     // ---------------- Métodos de interacción ----------------
-
     /**
      * Pide un dato textual al usuario.
-     * 
+     *
      * @param mensaje mensaje a mostrar
      * @return texto ingresado
      */
@@ -99,7 +97,7 @@ public class PantallaPrincipal extends JFrame {
 
     /**
      * Muestra un mensaje en el área de texto y en un cuadro emergente.
-     * 
+     *
      * @param mensaje mensaje a mostrar
      */
     public void mostrarMensaje(String mensaje) {
@@ -109,21 +107,21 @@ public class PantallaPrincipal extends JFrame {
 
     /**
      * Muestra un menú de opciones y retorna la opción seleccionada.
-     * 
+     *
      * @param titulo título del cuadro
      * @param opciones arreglo de opciones
      * @return índice de la opción seleccionada
      */
     public int mostrarOpciones(String titulo, String[] opciones) {
         return JOptionPane.showOptionDialog(
-            this,
-            "Seleccione una opción",
-            titulo,
-            JOptionPane.DEFAULT_OPTION,
-            JOptionPane.INFORMATION_MESSAGE,
-            null,
-            opciones,
-            opciones[0]
+                this,
+                "Seleccione una opción",
+                titulo,
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                opciones,
+                opciones[0]
         );
     }
 }

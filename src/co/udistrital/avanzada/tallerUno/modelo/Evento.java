@@ -9,14 +9,15 @@ package co.udistrital.avanzada.tallerUno.modelo;
  * @author jeiso
  */
 public class Evento {
+
     private String numeroEvento;
     private String tipoEvento;
     private String descripcionEvento;
     private String fecha;
 
-    public Evento(String tipoEvento, String descripcionEvento,String fecha,
+    public Evento(String tipoEvento, String descripcionEvento, String fecha,
             String numeroEvento) {
-        this.numeroEvento=numeroEvento;
+        this.numeroEvento = numeroEvento;
         this.tipoEvento = tipoEvento;
         this.descripcionEvento = descripcionEvento;
         this.fecha = fecha;
