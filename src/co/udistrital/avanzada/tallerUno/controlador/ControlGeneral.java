@@ -1,4 +1,8 @@
 package co.udistrital.avanzada.tallerUno.controlador;
+
+import co.udistrital.avanzada.tallerUno.modelo.Proveedor;
+import java.util.List;
+
 /**
  * ControlGeneral es el orquestador principal del sistema.
  *
@@ -29,6 +33,9 @@ public class ControlGeneral {
     }
     public ControlPersona getControlPersona() {
         return controlPersona;
+    }
+    public List<Proveedor> getProveedores() {
+        return controlPersona.getProveedores(); 
     }
     
     /**
@@ -125,6 +132,10 @@ public class ControlGeneral {
     public co.udistrital.avanzada.tallerUno.modelo.Vehiculo
             buscarVehiculo(String id) {
         return controlVehiculo.buscarScooter(id);
+    }
+
+    Object getControlVista() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

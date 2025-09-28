@@ -1,6 +1,9 @@
 package co.udistrital.avanzada.tallerUno.controlador;
 
+import co.udistrital.avanzada.tallerUno.modelo.Proveedor;
 import co.udistrital.avanzada.tallerUno.vista.PantallaPrincipal;
+import co.udistrital.avanzada.tallerUno.vista.VentanaProveedores;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -162,7 +165,8 @@ public class ControlVista implements ActionListener {
                             + id + " eliminado.");
                 }
                 case 2 -> { // Ver ambos tipos de proveedores
-                    
+                    List<Proveedor> proveedores = controlGeneral.getControlPersona().getProveedores();
+                    VentanaProveedores.mostrarProveedores( proveedores);
                 }
                 case 3 -> { // Ver Promociones y Eventos public. por admon y prov
                     
@@ -194,7 +198,7 @@ public class ControlVista implements ActionListener {
             String correo = pantallaPrincipal.pedirDato("Correo:");
             String pass = pantallaPrincipal.pedirDato("Contraseña:");
 
-        controlGeneral.getControlPersona().crearProveedor(nombre, apellido, cedula, numero, correo, pass, "servicios");
+        controlGeneral.getControlPersona().crearProveedor("servicios",nombre, apellido, cedula, numero, correo, pass);
         pantallaPrincipal.mostrarMensaje("Proveedor de servicios registrado: " + nombre + " " + apellido);
 
         } else if (opcion == 1) { // Crear proveedor de insumos
@@ -205,7 +209,7 @@ public class ControlVista implements ActionListener {
             String correo = pantallaPrincipal.pedirDato("Correo:");
             String pass = pantallaPrincipal.pedirDato("Contraseña:");
 
-            controlGeneral.getControlPersona().crearProveedor(nombre, apellido, cedula, numero, correo, pass, "insumos");
+            controlGeneral.getControlPersona().crearProveedor("insumos",nombre, apellido, cedula, numero, correo, pass);
             pantallaPrincipal.mostrarMensaje("Proveedor de insumos registrado: " + nombre + " " + apellido);
         }else if (opcion == 2) {
             
